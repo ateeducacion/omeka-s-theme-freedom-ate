@@ -1,4 +1,4 @@
-# Freedom S: An Omeka S Theme
+# This is an adaptation of Freedom S Theme for using in ATE
 
 This is an Omeka S theme that offers some custom options and a clean design.
 ![Freedom Theme](https://github.com/omeka-s-themes/freedom/blob/master/theme.jpg?raw=true)
