@@ -112,4 +112,15 @@
             }
         }
     }
+    .block-tools{
+        margin-top: auto
+    }
+        
 }
+.main-region > .metadata {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;   /* importante para que flex funcione bien */
+}
+
