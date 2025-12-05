@@ -42,7 +42,10 @@
                         width: 160px;
                     }
                 }
-            }
+                span {
+                    visibility: hidden;
+                }
+            }   
     
             dd {
                 display: flex;
@@ -112,10 +115,37 @@
             }
         }
     }
+
+    // dcterms:relation value styling - Pantone 130 style
+    // This will be applied via class added by JavaScript
+    .property.dcterms-relation {
+        dd.value {
+            display: inline-block;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            margin-right: 12px;
+            padding: 8px 14px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background-color: #F1C400;
+            color: #000;
+
+            &:hover {
+                opacity: 0.9;
+                transform: translateY(-1px);
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
     .block-tools{
         margin-top: auto
     }
-        
+
 }
 .main-region > .metadata {
   display: flex;

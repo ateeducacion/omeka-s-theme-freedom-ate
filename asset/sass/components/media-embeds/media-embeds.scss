@@ -1,0 +1,222 @@
+// Import Material Icons font
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+// Media group sections with headers
+.media-group-section {
+  margin-bottom: 0.5rem;
+
+  .media-group-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e0e0e0;
+    text-transform: capitalize;
+  }
+}
+
+// Media groups
+.media-group {
+  margin-bottom: 2rem;
+
+  // HTML media group (outside media-embeds)
+  &.html {
+    margin-bottom: 3rem;
+  }
+
+  // Grid for file type - 2 cards per row
+  &.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+}
+
+// Media cards
+.media-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .media-card-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem;
+    background: #fafafa;
+    min-height: 250px;
+
+    .media-render {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+
+      // For embedded content (youtube, iiif, etc)
+      iframe,
+      video {
+        max-width: 100%;
+        max-height: 300px;
+        width: 100%;
+      }
+    }
+  }
+
+  .media-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    gap: 1rem;
+
+    .media-title {
+      flex: 1;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #222;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .media-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem;
+      border-radius: 4px;
+      background: #f5f5f5;
+      color: #444;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+
+      &:hover {
+        background: #007bff;
+        color: #fff;
+        transform: scale(1.05);
+      }
+
+      .material-symbols-outlined {
+        font-size: 1.4rem;
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    }
+  }
+
+  // Media type card variant (for other media types)
+  &.media-type-card {
+    .media-card-footer.media-type-footer {
+      justify-content: left;
+      padding: 0.75rem 1rem;
+
+      .media-type-tag {
+        display: inline-block;
+        border-radius: 4px;
+        color: #222;
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 5px 10px;
+        background-color: #fff063;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+// Media embeds container - Single column layout for groups
+.media-embeds {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  // Each media group inside media-embeds (non-file types)
+  .media-group:not(.masonry-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .media-render {
+    background: #f9f9f9;
+    border-radius: 4px;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // 🔹 Tamaño uniforme
+    height: 400px;
+    width: 100%;
+
+    // Contenido clicable
+    a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+    // Asegura que imágenes/videos no rompan el layout
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+    }
+
+    // Estilos internos de SCORM para que no desborden
+    .learning-object-container,
+    .scorm-package {
+      height: 100%;
+      overflow: auto;  // scroll si el contenido es largo
+      margin: 0px !important;
+    }
+  }
+
+  // Responsive: una sola columna en móvil
+  @media (max-width: 768px) {
+    .media-group:not(.masonry-grid) {
+      grid-template-columns: 1fr;
+    }
+
+    .media-render {
+      height: 250px;
+    }
+  }
+}

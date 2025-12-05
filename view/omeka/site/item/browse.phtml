@@ -53,11 +53,21 @@ if (is_array($decoration) && in_array('media', $decoration)) {
 }
 ?>
 
-<?php if ($itemSetShow): ?>
-    <?php echo $this->ResourceTags($itemSet); ?>
-    <?php echo $this->pageTitle($itemSet->displayTitle(null, ($valueLang)), 1); ?>
 
-    <?php if ($mainHasBlocks || $leftSidebarHasBlocks || $rightSidebarHasBlocks): ?>
+<?php if ($itemSetShow): ?>
+   
+    <!--<div class="item-header-container">
+        <div class="item-title">
+            <?php /*echo $this->pageTitle($itemSet->displayTitle(null, $valueLang), 1); */?>
+        </div>
+        <div class="item-tags">
+            <?php /*echo $this->ResourceTags($itemSet);*/ ?>
+        </div>
+    </div>-->
+
+    <?php if (($mainHasBlocks && $blockContent = $mainBlockContent->getBlocks())
+        || ($leftSidebarHasBlocks && $blockContent = $leftSidebarBlockContent->getBlocks())
+        || ($rightSidebarHasBlocks && $blockContent = $rightSidebarBlockContent->getBlocks())): ?>
 
         <?php
         $additionalContainerClasses = '';
@@ -65,7 +75,7 @@ if (is_array($decoration) && in_array('media', $decoration)) {
             $additionalContainerClasses = 'regions-container--all';
         }
         ?>
-
+        
         <div class="regions-container <?php echo $additionalContainerClasses; ?>">
             <?php if ($leftSidebarHasBlocks && $blockContent = $leftSidebarBlockContent->getBlocks()): ?>
                 <div class="sidebar-region sidebar-region--left">
@@ -94,10 +104,10 @@ if (is_array($decoration) && in_array('media', $decoration)) {
 
     <?php endif; ?>
 
-    <div class="item-set-items">
-    <?php echo '<h3>' . $escape($translate('Items')) . '</h3>'; ?>
+    <!--<div class="item-set-items">
+    <?php /*echo '<h3>' . $escape($translate('Items')) . '</h3>';*/ ?>-->
 <?php else: ?>
-    <?php echo $this->pageTitle($translate('Items'), 2); ?>
+    <?php /*echo $this->pageTitle($translate('Items'), 2); */?>
 <?php endif; ?>
 
 <?php echo $this->searchFilters(); ?>
@@ -134,7 +144,6 @@ if (is_array($decoration) && in_array('media', $decoration)) {
 
             <!-- Content -->
             <div class="resource__content">
-                <?php echo $this->ResourceTags($item); ?>
                 <!-- Metadata -->
                 <div class="resource__meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
                     <?php echo $item->link($item->displayTitle(null, $valueLang)); ?>
@@ -142,6 +151,30 @@ if (is_array($decoration) && in_array('media', $decoration)) {
                         <div class="description <?php echo ($bodyTruncate) ? $bodyTruncate : ''; ?>"><?php echo $escape($body); ?></div>
                     <?php endif; ?>
                 </div>
+                <?php
+                // Calculate days since creation
+                $createdDate = $item->created();
+                $now = new DateTime();
+                $diff = $now->diff($createdDate);
+                $daysAgo = $diff->days;
+
+                // Get resource tags output
+                $resourceTagsHtml = $this->ResourceTags($item);
+
+                // Create days ago tag
+                $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%); margin-left: auto;">'
+                    . $escape($daysAgo) . ' ' . $escape($translate('days ago'))
+                    . '</div>';
+
+                // If resource tags exist, inject our tag inside; otherwise create wrapper
+                if (!empty($resourceTagsHtml)) {
+                    // Remove the closing </div> and add our tag before closing
+                    echo substr($resourceTagsHtml, 0, -6) . $daysAgoTag . '</div>';
+                } else {
+                    // Create our own resource-tags wrapper
+                    echo '<div class="resource-tags">' . $daysAgoTag . '</div>';
+                }
+                ?>
             </div>
         </li>
     <?php endforeach; ?>
