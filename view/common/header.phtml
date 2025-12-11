@@ -20,12 +20,12 @@ $navDepth = (int) $this->themeSetting('nav_depth') ? (int) $this->themeSetting('
 			<a href="<?php echo $site->url(); ?>">
 			<?php if ($this->themeSetting('logo')): ?>
 				<img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" alt="<?php echo $this->escapeHtml( $site->title() ); ?>" />
-			<?php else: ?>
-				<?php echo $this->escapeHtml( $site->title() ); ?>
 			<?php endif; ?>
+				<span class="main-header__site-name"><?php echo $this->escapeHtml( $site->title() ); ?></span>
 			</a>
 		</div>
 
+		<?php if ($this->themeSetting('header_menu')): ?>
 		<nav class="main-navigation">
 			<div class="main-navigation__container">
 				<?php
@@ -48,6 +48,7 @@ $navDepth = (int) $this->themeSetting('nav_depth') ? (int) $this->themeSetting('
 		</nav>
 
 		<?php echo $this->partial('common/menu-drawer'); ?>
+		<?php endif; ?>
 	</div>
 
 </header>

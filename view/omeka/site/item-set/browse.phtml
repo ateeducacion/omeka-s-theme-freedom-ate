@@ -56,9 +56,24 @@ if (is_array($decoration) && in_array('media', $decoration)) {
 <?php $this->trigger('view.browse.before'); ?>
 
 <ul class="resources <?php echo ($isGrid) ? 'resource-grid' : 'resource-list'; ?>">
-    
+
     <?php
     foreach ($itemSets as $itemSet):
+        // Check if item-set has visible items assigned to the site
+        $api = $this->api();
+        $siteId = $this->currentSite()->id();
+        $itemCount = $api->search('items', [
+            'item_set_id' => $itemSet->id(),
+            'site_id' => $siteId,
+            'is_public' => true,
+            'limit' => 1
+        ])->getTotalResults();
+
+        // Skip this item-set if it has no visible items
+        if ($itemCount === 0) {
+            continue;
+        }
+
         $body = $bodyTerm ? $itemSet->value($bodyTerm, ['lang' => ($valueLang)]) : $itemSet->displayDescription(null, ($valueLang));
         $thumbnail = $this->thumbnail($itemSet, 'large');
         ?>
@@ -72,7 +87,6 @@ if (is_array($decoration) && in_array('media', $decoration)) {
 
             <!-- Content -->
             <div class="resource__content">
-                <?php echo $this->ResourceTags($itemSet); ?>
                 <!-- Metadata -->
                 <div class="resource__meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
                     <?php echo $itemSet->link($itemSet->displayTitle(null, $valueLang)); ?>
@@ -80,6 +94,24 @@ if (is_array($decoration) && in_array('media', $decoration)) {
                         <div class="description <?php echo ($bodyTruncate) ? $bodyTruncate : ''; ?>"><?php echo $escape($body); ?></div>
                     <?php endif; ?>
                 </div>
+                <?php
+                // Get resource tags output
+                $resourceTagsHtml = $this->ResourceTags($itemSet);
+
+                // Create item count tag
+                $itemCountTag = '<div class="resource-tag item-count-tag" style="background-color: hsl(120, 50%, 85%); margin-left: auto;">'
+                    . $escape($itemCount) . ' ' . $escape($translate($itemCount === 1 ? 'item' : 'items'))
+                    . '</div>';
+
+                // If resource tags exist, inject our tag inside; otherwise create wrapper
+                if (!empty($resourceTagsHtml)) {
+                    // Remove the closing </div> and add our tag before closing
+                    echo substr($resourceTagsHtml, 0, -6) . $itemCountTag . '</div>';
+                } else {
+                    // Create our own resource-tags wrapper
+                    echo '<div class="resource-tags">' . $itemCountTag . '</div>';
+                }
+                ?>
             </div>
         </li>
     <?php endforeach; ?>

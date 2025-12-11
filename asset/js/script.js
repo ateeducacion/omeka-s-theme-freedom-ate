@@ -106,6 +106,16 @@ const freedomScripts = () => {
             }
         }
     });
+
+    // Add class to properties with dcterms:relation field-term
+    const properties = document.querySelectorAll('.property');
+
+    properties.forEach((property) => {
+        const fieldTerm = property.querySelector('dt .field-term');
+        if (fieldTerm && fieldTerm.textContent.includes('dcterms:relation')) {
+            property.classList.add('dcterms-relation');
+        }
+    });
 }
 
 if (document.readyState === 'loading') {

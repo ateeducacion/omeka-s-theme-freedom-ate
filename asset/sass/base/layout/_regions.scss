@@ -1,3 +1,35 @@
+// Item header container with tags and title
+.item-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ececec;
+
+    .item-tags {
+        flex-shrink: 0;
+    }
+
+    .item-title {
+        flex: 1;
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 0 !important;
+        }
+        .title{
+            border-bottom: none !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
 .regions-container {
     display: flex;
     flex-direction: column;
@@ -27,7 +59,7 @@
         width: 100%;
 
         @media (min-width: $md) {
-            width: 27%;
+            width: 20%;
         }
 
         &::after {
@@ -36,7 +68,7 @@
             width: 1px;
             height: calc(100% + 100px);
             background-color: $color__hr;
-            top: -50px;
+            top: -20px;
         }
 
         &--left {
@@ -44,13 +76,48 @@
                 right: -30px;
             }
         }
-    
+
         &--right {
             &::after {
                 left: -30px;
             }
         }
-    }
+
+        // Item-set value styling
+        .item-sets {
+            .value {
+                display: inline-block;
+                border-radius: 4px;
+                font-weight: 600;
+                margin-bottom: 12px;
+                margin-right: 12px;
+                padding: 8px 14px;
+                font-size: 1rem;
+                transition: all 0.2s ease;
+
+                // Default style - Pantone 3005 (blue)
+                background-color: hsl(4108050209, 100%, 87.5%);
+                color: #fff;
+
+                &:hover {
+                    opacity: 0.9;
+                    transform: translateY(-1px);
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                // Alternative style - Pantone 130 (orange/yellow)
+                &.alt,
+                &.highlight {
+                    background-color: #F1A022;
+                    color: #000;
+                }
+            }
+        }
+
+    }   
 
     &--all {
         flex-direction: column !important;
@@ -71,7 +138,7 @@
             width: 100% !important;
 
             @media (min-width: $xl) {
-                width: 27% !important;
+                width: 20% !important;
             }
         }
     }

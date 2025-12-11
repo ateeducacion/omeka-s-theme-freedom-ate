@@ -1,6 +1,7 @@
 .resource-tags {
     display: flex;
     flex-shrink: 0;
+    margin-top: 10px;
 
     .resource-tag {
         display: inline-block;
@@ -8,7 +9,7 @@
         color: $color__black;
         font-size: $font__xs-size;
         font-weight: 600;
-        margin-bottom: 10px;
+        //margin-bottom: 10px;
         margin-right: 10px;
         padding: 5px 10px;
     
