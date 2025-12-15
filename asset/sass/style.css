@@ -1543,7 +1543,7 @@ body.main-header--center {
 }
 @media (min-width: 1024px) {
   .main-header__site-title {
-    max-width: 30%;
+    max-width: 40%;
   }
   .main-header--center .main-header__site-title {
     max-width: none;
@@ -2546,6 +2546,49 @@ body.menu-drawer-toggled {
 .metadata dl > .property .language {
   margin-right: 5px;
 }
+.metadata .property {
+  margin-bottom: 1.25rem;
+}
+.metadata .property::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.metadata .property dt {
+  margin-bottom: 0.5rem;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .metadata .property dt:not(.sidebar-region .metadata .property dt) {
+    margin-bottom: 0;
+    float: left;
+    width: 160px;
+  }
+}
+.metadata .property dt span {
+  visibility: hidden;
+}
+.metadata .property dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0 0 1rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .metadata .property dd:not(.sidebar-region .metadata .property dd) {
+    margin-left: 160px;
+  }
+}
+.metadata .property dd:last-child {
+  margin-bottom: 0;
+}
+.metadata .property .language {
+  margin-right: 5px;
+}
 .metadata .value.resource .resource-link {
   display: inline-flex;
   align-items: center;
@@ -3459,6 +3502,10 @@ body.menu-drawer-toggled {
 }
 .resource-grid .resource__content {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  justify-content: space-between;
 }
 .resource-grid .resource__meta {
   padding: 5px 10px;
