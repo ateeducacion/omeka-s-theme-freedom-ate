@@ -5,7 +5,9 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp css"
+    "build": "gulp css",
+    "compile-translations": "node compile-translations.js",
+    "extract-strings": "echo 'Run: grep -rho \"\\$this->translate([\\'\\\"].*[\\'\\\"])\" view --include=\"*.phtml\" | sort -u'"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "homepage": "https://github.com/nelsonamaya82/theme-freedom#readme",
   "devDependencies": {
     "autoprefixer": "^9.2.1",
+    "gettext-parser": "^8.0.0",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^5.0.0"
