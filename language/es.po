@@ -1,0 +1,394 @@
+# Spanish translations for Omeka S Theme Freedom ATE
+# Copyright (C) 2026 ATE Educación
+# This file is distributed under the same license as the Omeka S Theme Freedom ATE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Omeka S Theme Freedom ATE\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-10 12:00+0000\n"
+"PO-Revision-Date: 2026-01-10 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: view/common/pagination.phtml:11
+#, php-format
+msgid "%1$s–%2$s of %3$s"
+msgstr "%1$s–%2$s de %3$s"
+
+#, php-format
+msgid "%s with \"%s: %s\""
+msgstr "%s con \"%s: %s\""
+
+#: view/common/pagination.phtml:45
+msgid "0 results"
+msgstr "0 resultados"
+
+msgid "AND"
+msgstr "Y"
+
+msgid "Add new class"
+msgstr "Añadir nueva clase"
+
+msgid "Add new item set"
+msgstr "Añadir nuevo conjunto"
+
+msgid "Add new value"
+msgstr "Añadir nuevo valor"
+
+#: view/omeka/site/item/search.phtml:7
+msgid "Advanced item search"
+msgstr "Búsqueda avanzada de elementos"
+
+#: view/common/header.phtml:11
+#: view/omeka/site/item/browse.phtml:124
+#: view/omeka/site/item-set/browse.phtml:52
+msgid "Advanced search"
+msgstr "Búsqueda avanzada"
+
+msgid "Ascending"
+msgstr "Ascendente"
+
+msgid "Class"
+msgstr "Clase"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Collapse all"
+msgstr "Contraer todo"
+
+msgid "Condition"
+msgstr "Condición"
+
+msgid "Date comes on or after"
+msgstr "Fecha es igual o posterior a"
+
+msgid "Date comes on or before"
+msgstr "Fecha es igual o anterior a"
+
+msgid "Date in interval"
+msgstr "Fecha en intervalo"
+
+msgid "Day"
+msgstr "Día"
+
+msgid "Days"
+msgstr "Días"
+
+msgid "Descending"
+msgstr "Descendente"
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Duration is greater than"
+msgstr "Duración es mayor que"
+
+msgid "Duration is less than"
+msgstr "Duración es menor que"
+
+msgid "Expand all"
+msgstr "Expandir todo"
+
+msgid "Files"
+msgstr "Archivos"
+
+msgid "Filter by resource type and property:"
+msgstr "Filtrar por tipo de recurso y propiedad:"
+
+#: view/common/pagination.phtml:31
+msgid "Go"
+msgstr "Ir"
+
+#: view/omeka/site/item/browse.phtml:118
+#: view/omeka/site/item-set/browse.phtml:46
+#: view/common/block-layout/browse-preview.phtml:47
+msgid "Grid"
+msgstr "Cuadrícula"
+
+msgid "Has annotation"
+msgstr "Tiene anotación"
+
+msgid "Has media"
+msgstr "Tiene medios"
+
+msgid "Has no media"
+msgstr "No tiene medios"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Hours"
+msgstr "Horas"
+
+msgid "In"
+msgstr "En"
+
+#, php-format
+msgid "Invalid value: %s"
+msgstr "Valor inválido: %s"
+
+msgid "Item Set"
+msgstr "Conjunto de elementos"
+
+#: view/omeka/site/item-set/browse.phtml:39
+msgid "Item sets"
+msgstr "Colecciones"
+
+#, php-format
+msgid "Item: %s"
+msgstr "Elemento: %s"
+
+#: view/omeka/site/item/browse.phtml:110
+msgid "Items"
+msgstr "Elementos"
+
+msgid "Linked resources"
+msgstr "Recursos vinculados"
+
+#: view/omeka/site/item/browse.phtml:119
+#: view/omeka/site/item-set/browse.phtml:47
+#: view/common/block-layout/browse-preview.phtml:48
+msgid "List"
+msgstr "Lista"
+
+msgid "Media"
+msgstr "Medios"
+
+#, php-format
+msgid "Media: %s"
+msgstr "Medios: %s"
+
+msgid "Minute"
+msgstr "Minuto"
+
+msgid "Minutes"
+msgstr "Minutos"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Months"
+msgstr "Meses"
+
+#: view/common/pagination.phtml:36
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "No pages found"
+msgstr "No se encontraron páginas"
+
+#: view/omeka/site/index/search.phtml:22
+msgid "No result found"
+msgstr "No se encontraron resultados"
+
+msgid "Not in"
+msgstr "No está en"
+
+msgid "OR"
+msgstr "O"
+
+msgid "Offset"
+msgstr "Desplazamiento"
+
+msgid "Other Media"
+msgstr "Otros medios"
+
+#: view/common/pagination.phtml:27
+#: view/common/pagination.phtml:28
+msgid "Page"
+msgstr "Página"
+
+msgid "Pages"
+msgstr "Páginas"
+
+#, php-format
+msgid "Part of %s"
+msgstr "Parte de %s"
+
+#: view/common/pagination.phtml:18
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Private"
+msgstr "Privado"
+
+msgid "Property"
+msgstr "Propiedad"
+
+msgid "Query text"
+msgstr "Texto de consulta"
+
+msgid "Query type"
+msgstr "Tipo de consulta"
+
+msgid "Remove value"
+msgstr "Eliminar valor"
+
+#: view/omeka/site/item/search.phtml:15
+msgid "Reset"
+msgstr "Restablecer"
+
+#: view/omeka/site/item/search.phtml:14
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Search by ID"
+msgstr "Buscar por ID"
+
+msgid "Search by class"
+msgstr "Buscar por clase"
+
+msgid "Search by item set"
+msgstr "Buscar por conjunto"
+
+msgid "Search by media presence"
+msgstr "Buscar por presencia de medios"
+
+msgid "Search by value"
+msgstr "Buscar por valor"
+
+#: view/omeka/site/index/search.phtml:19
+#, php-format
+msgid "Search results for \"%s\""
+msgstr "Resultados de búsqueda para \"%s\""
+
+msgid "Searches for items that are assigned to any of these item sets."
+msgstr "Busca elementos asignados a cualquiera de estos conjuntos."
+
+msgid "Searches for resources by Omeka S ID. You can search for more than one ID by separating them by commas."
+msgstr "Busca recursos por ID de Omeka S. Puede buscar más de un ID separándolos por comas."
+
+msgid "Searches for resources that are any of these classes."
+msgstr "Busca recursos que sean de cualquiera de estas clases."
+
+msgid "Second"
+msgstr "Segundo"
+
+msgid "Seconds"
+msgstr "Segundos"
+
+msgid "Select media presence…"
+msgstr "Seleccionar presencia de medios…"
+
+msgid "Select sort by…"
+msgstr "Seleccionar ordenar por…"
+
+msgid "Select sort order…"
+msgstr "Seleccionar orden…"
+
+#: view/layout/layout.phtml:65
+msgid "Skip to main content"
+msgstr "Saltar al contenido principal"
+
+msgid "Sort"
+msgstr "Ordenar"
+
+msgid "Sort by"
+msgstr "Ordenar por"
+
+msgid "Sort order"
+msgstr "Orden"
+
+msgid "Time"
+msgstr "Tiempo"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "Value Annotations"
+msgstr "Anotaciones de valor"
+
+msgid "Value is greater than"
+msgstr "Valor es mayor que"
+
+msgid "Value is less than"
+msgstr "Valor es menor que"
+
+msgid "Value must be a datetime"
+msgstr "El valor debe ser una fecha y hora"
+
+msgid "Value must be a duration"
+msgstr "El valor debe ser una duración"
+
+msgid "Value must be an integer"
+msgstr "El valor debe ser un número entero"
+
+#: view/omeka/site/index/search.phtml:70
+#, php-format
+msgid "View all results (%s total)"
+msgstr "Ver todos los resultados (%s total)"
+
+msgid "Year"
+msgstr "Año"
+
+msgid "Years"
+msgstr "Años"
+
+#: view/common/block-layout/browse-preview.phtml:57
+msgid "[Untitled]"
+msgstr "[Sin título]"
+
+msgid "contains"
+msgstr "contiene"
+
+#: view/omeka/site/item/browse.phtml:166
+msgid "days ago"
+msgstr "días atrás"
+
+msgid "does not contain"
+msgstr "no contiene"
+
+msgid "does not end with"
+msgstr "no termina con"
+
+msgid "does not start with"
+msgstr "no comienza con"
+
+msgid "ends with"
+msgstr "termina con"
+
+msgid "has any value"
+msgstr "tiene algún valor"
+
+msgid "has no values"
+msgstr "no tiene valores"
+
+msgid "is exactly"
+msgstr "es exactamente"
+
+msgid "is not exactly"
+msgstr "no es exactamente"
+
+msgid "is not resource with ID"
+msgstr "no es recurso con ID"
+
+msgid "is resource with ID"
+msgstr "es recurso con ID"
+
+msgid "item"
+msgstr "elemento"
+
+msgid "items"
+msgstr "elementos"
+
+#: view/common/pagination.phtml:30
+#, php-format
+msgid "of %s"
+msgstr "de %s"
+
+msgid "starts with"
+msgstr "comienza con"
+
+#: view/common/footer.phtml:116
+msgid "Powered by Omeka S"
+msgstr "Creado con Omeka S"
+
+msgid "Site pages"
+msgstr "Páginas del sitio"
