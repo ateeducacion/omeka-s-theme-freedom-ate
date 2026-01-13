@@ -1,18 +1,24 @@
 <?php
 $translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
 $hyperlink = $this->plugin('hyperlink');
 $url = $this->plugin('url');
+$this->inlineScript()->appendFile($this->assetUrl('js/minimasonry.min.js'));
+$this->inlineScript()->appendFile($this->assetUrl('js/browse.js'));
 $this->htmlElement('body')->appendAttribute('class', 'index search');
 
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
+$bodyTerm = $this->siteSetting('browse_body_property_term');
+$bodyTruncate = $this->themeSetting('truncate_body_property');
+
 $decoration = $this->themeSetting('image_decoration');
 $decorationClass = '';
 
 if (is_array($decoration) && in_array('media', $decoration)) {
-    $decorationClass = 'decoration decoration--thumbnail';
+    $decorationClass = 'decoration';
 }
 ?>
 
@@ -38,15 +44,23 @@ if (is_array($decoration) && in_array('media', $decoration)) {
     <?php foreach ($results as $resourceName => $result): ?>
         <div class="<?php echo $resourceName; ?> results">
             <h2><?php echo $translate($resourceLabels[$resourceName]); ?></h2>
-            <ul class="resources resource-list">
+            <ul class="resources resource-grid">
                 <?php foreach ($result['resources'] as $resource):
                     $primaryMedia = $resource->primaryMedia();
+                    $thumbnail = $this->thumbnail($primaryMedia, 'large');
+
+                    // Get body/description based on resource type
+                    if ($resourceName === 'items' && method_exists($resource, 'value')) {
+                        $body = $bodyTerm ? $resource->value($bodyTerm, ['lang' => ($valueLang)]) : $resource->displayDescription(null, ($valueLang));
+                    } else {
+                        $body = null;
+                    }
                     ?>
                     <li class="item resource">
                         <!-- Thumbnail -->
-                        <?php if ($primaryMedia): ?>
+                        <?php if ($thumbnail): ?>
                             <div class="resource__thumbnail <?php echo $decorationClass; ?>">
-                                <?php echo $resource->linkRaw($this->thumbnail($primaryMedia, 'large')); ?>
+                                <?php echo $resource->linkRaw($thumbnail); ?>
                             </div>
                         <?php endif; ?>
 
@@ -58,10 +72,40 @@ if (is_array($decoration) && in_array('media', $decoration)) {
                                 if ($resourceName === 'site_pages') {
                                     echo $resource->link($resource->title());
                                 } else {
-                                    echo $resource->link($resource->displayTitle(null, $valueLang)); 
+                                    echo $resource->link($resource->displayTitle(null, $valueLang));
                                 }
                                 ?>
+                                <?php if ($body): ?>
+                                    <div class="description <?php echo ($bodyTruncate) ? $bodyTruncate : ''; ?>"><?php echo $escape($body); ?></div>
+                                <?php endif; ?>
                             </div>
+                            <?php
+                            // Only show days ago tag for items
+                            if ($resourceName === 'items' && method_exists($resource, 'created')):
+                                // Calculate days since creation
+                                $createdDate = $resource->created();
+                                $now = new DateTime();
+                                $diff = $now->diff($createdDate);
+                                $daysAgo = $diff->days;
+
+                                // Get resource tags output
+                                $resourceTagsHtml = $this->ResourceTags($resource);
+
+                                // Create days ago tag
+                                $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%); margin-left: auto;">'
+                                    . $escape($daysAgo) . ' ' . $escape($translate('days ago'))
+                                    . '</div>';
+
+                                // If resource tags exist, inject our tag inside; otherwise create wrapper
+                                if (!empty($resourceTagsHtml)) {
+                                    // Remove the closing </div> and add our tag before closing
+                                    echo substr($resourceTagsHtml, 0, -6) . $daysAgoTag . '</div>';
+                                } else {
+                                    // Create our own resource-tags wrapper
+                                    echo '<div class="resource-tags">' . $daysAgoTag . '</div>';
+                                }
+                            endif;
+                            ?>
                         </div>
                     </li>
                 <?php endforeach; ?>
