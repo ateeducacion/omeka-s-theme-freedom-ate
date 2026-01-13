@@ -1,61 +1,62 @@
-#user-bar {
-    gap: 15px;
+.main-header__user-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 2px 8px;
+    background-color: $color__gray-95;
+    border-radius: 4px;
+    line-height: 1 !important;
 
-    a {
-        display: block;
+    .user-account-link {
+        line-height: 0;
 
-        @media(min-width: $lg) {
-            display: initial;
+        .material-symbols-outlined {
+            transition: font-variation-settings 0.2s ease;
+        }
+
+        &:hover .material-symbols-outlined,
+        &:focus .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
         }
     }
 
-    .site-links {
-        width: 60%;
+    .user-bar__icon {
+        font-size: 40px;
+        color: $color__gray-40;
+        flex-shrink: 0;
+    }
 
-        a {
-            display: inline-block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: calc(100%);
+    .user-bar__info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        align-items: flex-start;
+    }
 
-            @media(min-width: $lg) {
-                overflow: initial;
-                white-space: initial;
-                width: auto;
-            }
-        }
+    .user-bar__name {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: $color__main-text;
+        line-height: 1.2;
+    }
 
-        .admin {
-            &::after {
-                content: none !important;
+    .user-bar__logout {
+        font-size: 0.6rem;
+        padding: 2px 4px;
+        text-decoration: none;
+        background-color: var(--primary);
+        color: var(--primary-contrast);
+        border-radius: 3px;
+        transition: background-color 0.2s ease;
+        margin-left: auto;
 
-                @media(min-width: $lg) {
-                    content: ">" !important;
-                }
-            }
-
-            &:last-child::after {
-                content: none !important;
-            }
+        &:hover,
+        &:focus {
+            background-color: var(--primary-dark);
         }
     }
 
-    .user-links {
-        width: 40%;
-        text-align: right;
-
-        .logout {
-            margin-left: 0;
-            margin-top: 15px;
-            padding: 6px 10px;
-            text-decoration: none;
-
-            @media(min-width: $lg) {
-                margin-left: 12px;
-                margin-top: 0;
-                padding: 0 6px;
-            }
-        }
+    @media (max-width: $lg) {
+        display: none;
     }
 }

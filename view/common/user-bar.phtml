@@ -1,0 +1,17 @@
+<?php
+$urlHelper = $this->plugin('url');
+$translate = $this->plugin('translate');
+$hyperlink = $this->plugin('hyperlink');
+if ($user):
+    $url = $urlHelper('admin');
+?>
+<div id="user-bar" class="main-header__user-bar">
+    <a href="<?php echo $url; ?>" class="user-account-link" title="Admin Panel">
+        <span class="material-symbols-outlined" style="font-size:35px;">account_circle</span>
+    </a>
+    <div class="user-bar__info">
+        <span class="user-bar__name"><?php echo $hyperlink($user->getName(), $url); ?></span>
+        <a href="<?php echo $this->url('logout', [], true); ?>" class="button user-bar__logout"><?php echo $this->translate('Logout'); ?></a>
+    </div>
+</div>
+<?php endif; ?>
