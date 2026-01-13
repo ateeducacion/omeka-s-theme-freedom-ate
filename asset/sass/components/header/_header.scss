@@ -22,11 +22,17 @@
             align-items: flex-end;
             justify-content: flex-end;
         }
-        
+
         background: url(https://www3.gobiernodecanarias.org/medusa/wiki/images/1/1d/Logo_GobCan_claim_color.png) no-repeat;
         background-size: auto 60px;
         background-position: 20px center;
-        
+
+    }
+
+    &__actions-group {
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 
     &__advanced-search {
