@@ -3506,6 +3506,7 @@ body.menu-drawer-toggled {
   flex-direction: column;
   height: 120px;
   justify-content: space-between;
+  align-items: unset !important;
 }
 .resource-grid .resource__meta {
   padding: 5px 10px;

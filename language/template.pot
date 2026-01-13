@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Omeka S Theme Freedom ATE\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-10 12:00+0000\n"
+"POT-Creation-Date: 2026-01-13 12:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,366 +17,466 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: view/common/pagination.phtml:11
-#, php-format
-msgid "%1$s–%2$s of %3$s"
+#: view/layout/layout.phtml:65
+msgid "Skip to main content"
 msgstr ""
 
-#, php-format
-msgid "%s with \"%s: %s\""
+#: view/omeka/site/page/browse.phtml:5
+msgid "Pages"
 msgstr ""
 
-#: view/common/pagination.phtml:45
-msgid "0 results"
-msgstr ""
-
-msgid "AND"
-msgstr ""
-
-msgid "Add new class"
-msgstr ""
-
-msgid "Add new item set"
-msgstr ""
-
-msgid "Add new value"
+#: view/omeka/site/page/browse.phtml:14
+msgid "No pages found"
 msgstr ""
 
 #: view/omeka/site/item/search.phtml:7
 msgid "Advanced item search"
 msgstr ""
 
-#: view/common/header.phtml:11
-#: view/omeka/site/item/browse.phtml:124
-#: view/omeka/site/item-set/browse.phtml:52
-msgid "Advanced search"
-msgstr ""
-
-msgid "Ascending"
-msgstr ""
-
-msgid "Class"
-msgstr ""
-
-msgid "Close"
-msgstr ""
-
-msgid "Collapse all"
-msgstr ""
-
-msgid "Condition"
-msgstr ""
-
-msgid "Date comes on or after"
-msgstr ""
-
-msgid "Date comes on or before"
-msgstr ""
-
-msgid "Date in interval"
-msgstr ""
-
-msgid "Day"
-msgstr ""
-
-msgid "Days"
-msgstr ""
-
-msgid "Descending"
-msgstr ""
-
-msgid "Download"
-msgstr ""
-
-msgid "Duration is greater than"
-msgstr ""
-
-msgid "Duration is less than"
-msgstr ""
-
-msgid "Expand all"
-msgstr ""
-
-msgid "Files"
-msgstr ""
-
-msgid "Filter by resource type and property:"
-msgstr ""
-
-#: view/common/pagination.phtml:31
-msgid "Go"
-msgstr ""
-
-#: view/omeka/site/item/browse.phtml:118
-#: view/omeka/site/item-set/browse.phtml:46
-#: view/common/block-layout/browse-preview.phtml:47
-msgid "Grid"
-msgstr ""
-
-msgid "Has annotation"
-msgstr ""
-
-msgid "Has media"
-msgstr ""
-
-msgid "Has no media"
-msgstr ""
-
-msgid "Hour"
-msgstr ""
-
-msgid "Hours"
-msgstr ""
-
-msgid "In"
-msgstr ""
-
-#, php-format
-msgid "Invalid value: %s"
-msgstr ""
-
-msgid "Item Set"
-msgstr ""
-
-#: view/omeka/site/item-set/browse.phtml:39
-msgid "Item sets"
-msgstr ""
-
-#, php-format
-msgid "Item: %s"
-msgstr ""
-
-#: view/omeka/site/item/browse.phtml:110
-msgid "Items"
-msgstr ""
-
-msgid "Linked resources"
-msgstr ""
-
-#: view/omeka/site/item/browse.phtml:119
-#: view/omeka/site/item-set/browse.phtml:47
-#: view/common/block-layout/browse-preview.phtml:48
-msgid "List"
-msgstr ""
-
-msgid "Media"
-msgstr ""
-
-#, php-format
-msgid "Media: %s"
-msgstr ""
-
-msgid "Minute"
-msgstr ""
-
-msgid "Minutes"
-msgstr ""
-
-msgid "Month"
-msgstr ""
-
-msgid "Months"
-msgstr ""
-
-#: view/common/pagination.phtml:36
-msgid "Next"
-msgstr ""
-
-msgid "No pages found"
-msgstr ""
-
-#: view/omeka/site/index/search.phtml:22
-msgid "No result found"
-msgstr ""
-
-msgid "Not in"
-msgstr ""
-
-msgid "OR"
-msgstr ""
-
-msgid "Offset"
-msgstr ""
-
-msgid "Other Media"
-msgstr ""
-
-#: view/common/pagination.phtml:27
-#: view/common/pagination.phtml:28
-msgid "Page"
-msgstr ""
-
-msgid "Pages"
-msgstr ""
-
-#, php-format
-msgid "Part of %s"
-msgstr ""
-
-#: view/common/pagination.phtml:18
-msgid "Previous"
-msgstr ""
-
-msgid "Private"
-msgstr ""
-
-msgid "Property"
-msgstr ""
-
-msgid "Query text"
-msgstr ""
-
-msgid "Query type"
-msgstr ""
-
-msgid "Remove value"
+#: view/omeka/site/item/search.phtml:14
+msgid "Search"
 msgstr ""
 
 #: view/omeka/site/item/search.phtml:15
 msgid "Reset"
 msgstr ""
 
-#: view/omeka/site/item/search.phtml:14
-msgid "Search"
+#: view/omeka/site/item/browse.phtml:118
+#: view/omeka/site/item-set/browse.phtml:46
+#: view/omeka/site/media/browse.phtml:46
+#: view/common/block-layout/browse-preview.phtml:47
+msgid "Grid"
 msgstr ""
 
-msgid "Search by ID"
+#: view/omeka/site/item/browse.phtml:119
+#: view/omeka/site/item-set/browse.phtml:47
+#: view/omeka/site/media/browse.phtml:47
+#: view/common/block-layout/browse-preview.phtml:48
+msgid "List"
 msgstr ""
 
-msgid "Search by class"
+#: view/omeka/site/item/browse.phtml:124
+#: view/omeka/site/item-set/browse.phtml:52
+#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
+msgid "Advanced search"
 msgstr ""
 
-msgid "Search by item set"
+#: view/omeka/site/item/browse.phtml:166 view/omeka/site/index/search.phtml:96
+msgid "days ago"
 msgstr ""
 
-msgid "Search by media presence"
-msgstr ""
-
-msgid "Search by value"
-msgstr ""
-
-#: view/omeka/site/index/search.phtml:19
+#: view/omeka/site/index/search.phtml:25
 #, php-format
-msgid "Search results for \"%s\""
+msgid "Search results for “%s”"
 msgstr ""
 
-msgid "Searches for items that are assigned to any of these item sets."
+#: view/omeka/site/index/search.phtml:28
+msgid "No result found"
 msgstr ""
 
-msgid "Searches for resources by Omeka S ID. You can search for more than one ID by separating them by commas."
-msgstr ""
-
-msgid "Searches for resources that are any of these classes."
-msgstr ""
-
-msgid "Second"
-msgstr ""
-
-msgid "Seconds"
-msgstr ""
-
-msgid "Select media presence…"
-msgstr ""
-
-msgid "Select sort by…"
-msgstr ""
-
-msgid "Select sort order…"
-msgstr ""
-
-#: view/layout/layout.phtml:65
-msgid "Skip to main content"
-msgstr ""
-
-msgid "Sort"
-msgstr ""
-
-msgid "Sort by"
-msgstr ""
-
-msgid "Sort order"
-msgstr ""
-
-msgid "Time"
-msgstr ""
-
-msgid "Value"
-msgstr ""
-
-msgid "Value Annotations"
-msgstr ""
-
-msgid "Value is greater than"
-msgstr ""
-
-msgid "Value is less than"
-msgstr ""
-
-msgid "Value must be a datetime"
-msgstr ""
-
-msgid "Value must be a duration"
-msgstr ""
-
-msgid "Value must be an integer"
-msgstr ""
-
-#: view/omeka/site/index/search.phtml:70
+#: view/omeka/site/index/search.phtml:114
 #, php-format
 msgid "View all results (%s total)"
 msgstr ""
 
-msgid "Year"
+#: view/omeka/site/item-set/browse.phtml:39
+#: view/common/block-layout/item-with-metadata.phtml:62
+msgid "Item sets"
 msgstr ""
 
-msgid "Years"
+#: view/omeka/site/item-set/browse.phtml:103
+msgid "item"
+msgstr ""
+
+#: view/omeka/site/media/browse.phtml:39
+#: view/common/block-layout/item-with-metadata.phtml:72
+#: view/common/resource-page-block-layout/media-list.phtml:8
+msgid "Media"
+msgstr ""
+
+#: view/omeka/site/media/show.phtml:66
+#, php-format
+msgid "Part of %s"
+msgstr ""
+
+#: view/common/block-layout/mapping-block-popup-content.phtml:14
+#, php-format
+msgid "Item: %s"
+msgstr ""
+
+#: view/common/block-layout/mapping-block-popup-content.phtml:19
+#, php-format
+msgid "Media: %s"
 msgstr ""
 
 #: view/common/block-layout/browse-preview.phtml:57
 msgid "[Untitled]"
 msgstr ""
 
-msgid "contains"
+#: view/common/linked-resources.phtml:62
+msgid "Filter by resource type and property:"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:166
-msgid "days ago"
+#: view/common/linked-resources.phtml:71
+#, php-format
+msgid "%s with \"%s: %s\""
 msgstr ""
 
-msgid "does not contain"
+#: view/common/numeric-timestamp.phtml:7 view/common/numeric-integer.phtml:7
+#: view/common/numeric-duration.phtml:7
+#, php-format
+msgid "Invalid value: %s"
 msgstr ""
 
-msgid "does not end with"
+#: view/common/numeric-timestamp.phtml:8
+msgid "Value must be a datetime"
 msgstr ""
 
-msgid "does not start with"
+#: view/common/numeric-timestamp.phtml:13
+msgid "Year"
 msgstr ""
 
-msgid "ends with"
+#: view/common/numeric-timestamp.phtml:16
+msgid "Month"
 msgstr ""
 
-msgid "has any value"
+#: view/common/numeric-timestamp.phtml:19
+msgid "Day"
 msgstr ""
 
-msgid "has no values"
+#: view/common/numeric-timestamp.phtml:22 view/common/numeric-duration.phtml:22
+msgid "Time"
 msgstr ""
 
+#: view/common/numeric-timestamp.phtml:25
+msgid "Hour"
+msgstr ""
+
+#: view/common/numeric-timestamp.phtml:28
+msgid "Minute"
+msgstr ""
+
+#: view/common/numeric-timestamp.phtml:31
+msgid "Second"
+msgstr ""
+
+#: view/common/numeric-timestamp.phtml:34
+msgid "Offset"
+msgstr ""
+
+#: view/common/menu-drawer.phtml:2
+msgid "Close"
+msgstr ""
+
+#: view/common/menu-drawer.phtml:3 view/common/pagination.phtml:18
+msgid "Previous"
+msgstr ""
+
+#: view/common/advanced-search/has-media.phtml:3
+msgid "Search by media presence"
+msgstr ""
+
+#: view/common/advanced-search/has-media.phtml:5
+msgid "Has media"
+msgstr ""
+
+#: view/common/advanced-search/has-media.phtml:6
+msgid "Has no media"
+msgstr ""
+
+#: view/common/advanced-search/has-media.phtml:8
+msgid "Select media presence…"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:38
+#: view/common/advanced-search/properties.phtml:100
+msgid "Query text"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:54
+msgid "Search by value"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:65
+msgid "AND"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:66
+msgid "OR"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:69
+#: view/common/advanced-search/properties.phtml:76
+#: view/common/numeric-data-types-advanced-search.phtml:17
+#: view/common/numeric-data-types-advanced-search.phtml:46
+#: view/common/numeric-data-types-advanced-search.phtml:74
+#: view/common/numeric-data-types-advanced-search.phtml:101
+#: view/common/numeric-data-types-advanced-search.phtml:128
+#: view/common/numeric-data-types-advanced-search.phtml:156
+#: view/common/numeric-data-types-advanced-search.phtml:183
+msgid "Property"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:85
+#: view/common/advanced-search/properties.phtml:86
+msgid "Query type"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:87
 msgid "is exactly"
 msgstr ""
 
+#: view/common/advanced-search/properties.phtml:88
 msgid "is not exactly"
 msgstr ""
 
-msgid "is not resource with ID"
+#: view/common/advanced-search/properties.phtml:89
+msgid "contains"
 msgstr ""
 
+#: view/common/advanced-search/properties.phtml:90
+msgid "does not contain"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:91
+msgid "starts with"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:92
+msgid "does not start with"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:93
+msgid "ends with"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:94
+msgid "does not end with"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:95
 msgid "is resource with ID"
 msgstr ""
 
-msgid "item"
+#: view/common/advanced-search/properties.phtml:96
+msgid "is not resource with ID"
 msgstr ""
 
-msgid "items"
+#: view/common/advanced-search/properties.phtml:97
+msgid "has any value"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:98
+msgid "has no values"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:102
+#: view/common/advanced-search/resource-class.phtml:44
+#: view/common/advanced-search/item-sets.phtml:68
+msgid "Remove value"
+msgstr ""
+
+#: view/common/advanced-search/properties.phtml:110
+msgid "Add new value"
+msgstr ""
+
+#: view/common/advanced-search/resource-class.phtml:24
+msgid "Search by class"
+msgstr ""
+
+#: view/common/advanced-search/resource-class.phtml:26
+msgid "Searches for resources that are any of these classes."
+msgstr ""
+
+#: view/common/advanced-search/resource-class.phtml:32
+msgid "Class"
+msgstr ""
+
+#: view/common/advanced-search/resource-class.phtml:48
+msgid "Add new class"
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:43
+msgid "Search by item set"
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:45
+msgid "Searches for items that are assigned to any of these item sets."
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:51
+msgid "Condition"
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:53
+msgid "In"
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:54
+msgid "Not in"
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:57
+msgid "Item Set"
+msgstr ""
+
+#: view/common/advanced-search/item-sets.phtml:72
+msgid "Add new item set"
+msgstr ""
+
+#: view/common/advanced-search/ids.phtml:13
+msgid "Search by ID"
+msgstr ""
+
+#: view/common/advanced-search/ids.phtml:15
+msgid ""
+"Searches for resources by Omeka S ID. You can search for more than one ID by "
+"separating them by commas."
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:20
+msgid "Select sort by…"
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:25
+msgid "Select sort order…"
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:27
+msgid "Ascending"
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:28
+msgid "Descending"
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:34
+msgid "Sort"
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:37
+msgid "Sort by"
+msgstr ""
+
+#: view/common/advanced-search/sort.phtml:40
+msgid "Sort order"
+msgstr ""
+
+#: view/common/footer.phtml:116
+msgid "Powered by Omeka S"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:14
+msgid "Date comes on or after"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:43
+msgid "Date comes on or before"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:71
+msgid "Duration is greater than"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:98
+msgid "Duration is less than"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:125
+msgid "Date in interval"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:153
+msgid "Value is greater than"
+msgstr ""
+
+#: view/common/numeric-data-types-advanced-search.phtml:180
+msgid "Value is less than"
+msgstr ""
+
+#: view/common/resource-page-block-layout/linked-resources.phtml:12
+msgid "Expand all"
+msgstr ""
+
+#: view/common/resource-page-block-layout/linked-resources.phtml:13
+msgid "Collapse all"
+msgstr ""
+
+#: view/common/resource-page-block-layout/linked-resources.phtml:18
+msgid "Linked resources"
+msgstr ""
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:42
+msgid "Files"
+msgstr ""
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:53
+msgid "Download"
+msgstr ""
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:66
+msgid "Other Media"
+msgstr ""
+
+#: view/common/numeric-integer.phtml:8
+msgid "Value must be an integer"
+msgstr ""
+
+#: view/common/numeric-integer.phtml:11
+msgid "Value"
+msgstr ""
+
+#: view/common/user-bar.phtml:14
+msgid "Logout"
+msgstr ""
+
+#: view/common/resource-values.phtml:75
+msgid "Private"
+msgstr ""
+
+#: view/common/resource-values.phtml:79
+msgid "Has annotation"
+msgstr ""
+
+#: view/common/resource-values.phtml:82
+msgid "Value Annotations"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:8
+msgid "Value must be a duration"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:13
+msgid "Years"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:16
+msgid "Months"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:19
+msgid "Days"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:25
+msgid "Hours"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:28
+msgid "Minutes"
+msgstr ""
+
+#: view/common/numeric-duration.phtml:31
+msgid "Seconds"
+msgstr ""
+
+#: view/common/pagination.phtml:11
+#, php-format
+msgid "%1$s–%2$s of %3$s"
+msgstr ""
+
+#: view/common/pagination.phtml:27 view/common/pagination.phtml:28
+msgid "Page"
 msgstr ""
 
 #: view/common/pagination.phtml:30
@@ -384,12 +484,14 @@ msgstr ""
 msgid "of %s"
 msgstr ""
 
-msgid "starts with"
+#: view/common/pagination.phtml:31
+msgid "Go"
 msgstr ""
 
-#: view/common/footer.phtml:116
-msgid "Powered by Omeka S"
+#: view/common/pagination.phtml:36
+msgid "Next"
 msgstr ""
 
-msgid "Site pages"
+#: view/common/pagination.phtml:45
+msgid "0 results"
 msgstr ""
