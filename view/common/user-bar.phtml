@@ -11,7 +11,25 @@ if ($user):
     </a>
     <div class="user-bar__info">
         <span class="user-bar__name"><?php echo $hyperlink($user->getName(), $url); ?></span>
-        <a href="<?php echo $this->url('logout', [], true); ?>" class="button user-bar__logout"><?php echo $this->translate('Logout'); ?></a>
+        <a href="<?php echo $this->url('logout', [], true); ?>" class="button user-bar__logout" id="logout-button"><?php echo $this->translate('Logout'); ?></a>
+<script>
+document.getElementById('logout-button').addEventListener('click', function(e) {
+    e.preventDefault();
+    var logoutUrl = this.href;
+    fetch(logoutUrl, {
+        method: 'GET',
+        credentials: 'same-origin'
+    }).then(function(response) {
+        // Recargar siempre - si el logout tuvo éxito, el usuario verá la página sin login
+        // Si falló, seguirá logueado y puede intentar de nuevo
+        window.location.reload();
+    }).catch(function() {
+        // En caso de error de red, redirigir al logout tradicional
+        window.location.href = logoutUrl;
+    });
+});
+</script>
     </div>
 </div>
+
 <?php endif; ?>
