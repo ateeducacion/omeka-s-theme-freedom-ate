@@ -32,4 +32,13 @@ document.getElementById('logout-button').addEventListener('click', function(e) {
     </div>
 </div>
 
+<?php else: ?>
+<div id="user-bar" class="main-header__user-bar">
+    <a href="<?php echo $this->url('login'); ?>" class="user-account-link" title="<?php echo $translate('Login'); ?>">
+        <span class="material-symbols-outlined" style="font-size:35px;">login</span>
+    </a>
+    <div class="user-bar__info">
+        <a href="<?php echo $this->url('login'); ?>" class="button user-bar__logout"><?php echo $translate('Login'); ?></a>
+    </div>
+</div>
 <?php endif; ?>
