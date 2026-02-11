@@ -820,6 +820,171 @@ table td {
   visibility: visible;
 }
 
+/* Resource Tags Group - keeps item-actions and days-ago-tag together */
+.resource-tags-group {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Item Actions Toolbox */
+a[class*=o-icon-] {
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-block;
+}
+
+.item-actions {
+  margin: 0 10px 0 0;
+  display: flex;
+  padding: 0;
+}
+.item-actions li {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.item-actions a,
+.item-actions a:before,
+.item-actions button,
+.item-actions button:before {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  vertical-align: top;
+  border: 0;
+  box-shadow: none;
+  display: inline-block;
+}
+.item-actions .button:hover,
+.item-actions button:hover {
+  box-shadow: none !important;
+}
+.item-actions a:before,
+.item-actions button:before {
+  text-align: right;
+}
+.item-actions.center a:before, .item-actions.center button:before {
+  text-align: center;
+}
+.item-actions .inactive {
+  display: none;
+}
+.item-actions button {
+  background-color: transparent;
+  color: #a91919;
+  margin: 0;
+  text-indent: -9999px;
+  position: relative;
+  padding: 0;
+  min-height: 0;
+}
+.item-actions button:before {
+  text-indent: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.item-actions button:hover {
+  color: #e11717;
+}
+.item-actions a {
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 3px;
+}
+.item-actions a::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 16px;
+}
+.item-actions .o-icon-edit {
+  color: #767676;
+}
+.item-actions .o-icon-edit::before {
+  content: "\f303";
+}
+.item-actions .o-icon-edit:hover {
+  color: #333;
+}
+.item-actions .o-icon-add {
+  color: #767676;
+  /*&::before {
+      content: "\2b";
+  }*/
+}
+.item-actions .o-icon-add:hover {
+  color: #333;
+}
+.item-actions .o-icon-delete {
+  color: #767676;
+}
+.item-actions .o-icon-delete::before {
+  content: "\f1f8";
+}
+.item-actions .o-icon-delete:hover {
+  color: #ee001d;
+}
+
+/* Delete Confirmation Modal */
+.delete-confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-confirm-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.delete-confirm-modal__content {
+  position: relative;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 30px;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.delete-confirm-modal__content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.delete-confirm-modal__content p {
+  margin-bottom: 25px;
+  color: #666;
+}
+.delete-confirm-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.delete-confirm-modal__actions .button {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+.delete-confirm-modal__actions #delete-confirm {
+  background-color: #ee001d;
+  border-color: #ee001d;
+}
+.delete-confirm-modal__actions #delete-confirm:hover {
+  background-color: rgb(187, 0, 22.7857142857);
+}
+
+.resource-tags-group {
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 0 10px 0 auto;
+}
+
 /* Links
 --------------------------------------------- */
 a {
