@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-13 12:45+0000\n"
+"POT-Creation-Date: 2026-02-11 09:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,28 +41,54 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:118
+#: view/omeka/site/item/browse.phtml:123
 #: view/omeka/site/item-set/browse.phtml:46
 #: view/omeka/site/media/browse.phtml:46
 #: view/common/block-layout/browse-preview.phtml:47
 msgid "Grid"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:119
+#: view/omeka/site/item/browse.phtml:124
 #: view/omeka/site/item-set/browse.phtml:47
 #: view/omeka/site/media/browse.phtml:47
 #: view/common/block-layout/browse-preview.phtml:48
 msgid "List"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:124
+#: view/omeka/site/item/browse.phtml:129
 #: view/omeka/site/item-set/browse.phtml:52
 #: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
 msgid "Advanced search"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:166 view/omeka/site/index/search.phtml:96
-msgid "days ago"
+#: view/omeka/site/item/browse.phtml:176 view/omeka/site/item/show.phtml:46
+msgid "Edit"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:177 view/omeka/site/item/show.phtml:47
+msgid "Add media"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:178 view/omeka/site/item/show.phtml:48
+msgid "Delete"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:184 view/omeka/site/item/show.phtml:54
+#, php-format
+msgid "%s day ago"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:220 view/omeka/site/item/browse.phtml:224
+#: view/omeka/site/item/show.phtml:123 view/omeka/site/item/show.phtml:127
+msgid "Confirm Delete"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:221 view/omeka/site/item/show.phtml:124
+msgid "Are you sure you want to delete the item"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:223 view/omeka/site/item/show.phtml:126
+msgid "Cancel"
 msgstr ""
 
 #: view/omeka/site/index/search.phtml:25
@@ -72,6 +98,10 @@ msgstr ""
 
 #: view/omeka/site/index/search.phtml:28
 msgid "No result found"
+msgstr ""
+
+#: view/omeka/site/index/search.phtml:96
+msgid "days ago"
 msgstr ""
 
 #: view/omeka/site/index/search.phtml:114
@@ -428,6 +458,10 @@ msgstr ""
 
 #: view/common/user-bar.phtml:14
 msgid "Logout"
+msgstr ""
+
+#: view/common/user-bar.phtml:37 view/common/user-bar.phtml:41
+msgid "Login"
 msgstr ""
 
 #: view/common/resource-values.phtml:75

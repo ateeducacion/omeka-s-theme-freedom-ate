@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Omeka S Theme Freedom ATE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-13 12:45+0000\n"
-"PO-Revision-Date: 2026-01-13 13:00+0000\n"
+"POT-Creation-Date: 2026-02-11 09:39+0000\n"
+"PO-Revision-Date: 2026-02-11 10:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -30,7 +30,7 @@ msgstr "No se encontraron páginas"
 
 #: view/omeka/site/item/search.phtml:7
 msgid "Advanced item search"
-msgstr "Búsqueda avanzada de elementos"
+msgstr "Búsqueda avanzada de fichas"
 
 #: view/omeka/site/item/search.phtml:14
 msgid "Search"
@@ -40,43 +40,73 @@ msgstr "Buscar"
 msgid "Reset"
 msgstr "Restablecer"
 
-#: view/omeka/site/item/browse.phtml:118
+#: view/omeka/site/item/browse.phtml:123
 #: view/omeka/site/item-set/browse.phtml:46
 #: view/omeka/site/media/browse.phtml:46
 #: view/common/block-layout/browse-preview.phtml:47
 msgid "Grid"
 msgstr "Cuadrícula"
 
-#: view/omeka/site/item/browse.phtml:119
+#: view/omeka/site/item/browse.phtml:124
 #: view/omeka/site/item-set/browse.phtml:47
 #: view/omeka/site/media/browse.phtml:47
 #: view/common/block-layout/browse-preview.phtml:48
 msgid "List"
 msgstr "Lista"
 
-#: view/omeka/site/item/browse.phtml:124
+#: view/omeka/site/item/browse.phtml:129
 #: view/omeka/site/item-set/browse.phtml:52
 #: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
 msgid "Advanced search"
 msgstr "Búsqueda avanzada"
 
-#: view/omeka/site/item/browse.phtml:166 view/omeka/site/index/search.phtml:96
-msgid "days ago"
-msgstr "días atrás"
+#: view/omeka/site/item/browse.phtml:176 view/omeka/site/item/show.phtml:46
+msgid "Edit"
+msgstr "Editar"
+
+#: view/omeka/site/item/browse.phtml:177 view/omeka/site/item/show.phtml:47
+msgid "Add media"
+msgstr "Añadir medio"
+
+#: view/omeka/site/item/browse.phtml:178 view/omeka/site/item/show.phtml:48
+msgid "Delete"
+msgstr "Eliminar"
+
+#: view/omeka/site/item/browse.phtml:184 view/omeka/site/item/show.phtml:54
+#, php-format
+msgid "%s day ago"
+msgstr "hace %s día"
+
+#: view/omeka/site/item/browse.phtml:220 view/omeka/site/item/browse.phtml:224
+#: view/omeka/site/item/show.phtml:123 view/omeka/site/item/show.phtml:127
+msgid "Confirm Delete"
+msgstr "Confirmar eliminación"
+
+#: view/omeka/site/item/browse.phtml:221 view/omeka/site/item/show.phtml:124
+msgid "Are you sure you want to delete the item"
+msgstr "¿Está seguro de que desea eliminar el elemento?"
+
+#: view/omeka/site/item/browse.phtml:223 view/omeka/site/item/show.phtml:126
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: view/omeka/site/index/search.phtml:25
-#, php-format
-msgid "Search results for \"%s\""
+#, fuzzy, php-format
+msgid "Search results for “%s”"
 msgstr "Resultados de búsqueda para «%s»"
 
 #: view/omeka/site/index/search.phtml:28
 msgid "No result found"
 msgstr "No se encontraron resultados"
 
+#: view/omeka/site/index/search.phtml:96
+msgid "days ago"
+msgstr "días atrás"
+
 #: view/omeka/site/index/search.phtml:114
 #, php-format
 msgid "View all results (%s total)"
-msgstr "Ver todos los resultados (%s total)"
+msgstr "Ver todos los resultados (%s en total)"
 
 #: view/omeka/site/item-set/browse.phtml:39
 #: view/common/block-layout/item-with-metadata.phtml:62
@@ -85,7 +115,7 @@ msgstr "Colecciones"
 
 #: view/omeka/site/item-set/browse.phtml:103
 msgid "item"
-msgstr "elemento"
+msgstr "ficha"
 
 #: view/omeka/site/media/browse.phtml:39
 #: view/common/block-layout/item-with-metadata.phtml:72
@@ -101,7 +131,7 @@ msgstr "Parte de %s"
 #: view/common/block-layout/mapping-block-popup-content.phtml:14
 #, php-format
 msgid "Item: %s"
-msgstr "Elemento: %s"
+msgstr "Ficha: %s"
 
 #: view/common/block-layout/mapping-block-popup-content.phtml:19
 #, php-format
@@ -301,7 +331,7 @@ msgstr "Buscar por conjunto"
 
 #: view/common/advanced-search/item-sets.phtml:45
 msgid "Searches for items that are assigned to any of these item sets."
-msgstr "Busca elementos asignados a cualquiera de estos conjuntos."
+msgstr "Busca fichas asignadas a cualquiera de estos conjuntos."
 
 #: view/common/advanced-search/item-sets.phtml:51
 msgid "Condition"
@@ -317,7 +347,7 @@ msgstr "No está en"
 
 #: view/common/advanced-search/item-sets.phtml:57
 msgid "Item Set"
-msgstr "Conjunto de elementos"
+msgstr "Conjunto de fichas"
 
 #: view/common/advanced-search/item-sets.phtml:72
 msgid "Add new item set"
@@ -431,6 +461,10 @@ msgstr "Valor"
 msgid "Logout"
 msgstr "Cerrar sesión"
 
+#: view/common/user-bar.phtml:37 view/common/user-bar.phtml:41
+msgid "Login"
+msgstr "Iniciar sesión"
+
 #: view/common/resource-values.phtml:75
 msgid "Private"
 msgstr "Privado"
@@ -496,12 +530,3 @@ msgstr "Siguiente"
 #: view/common/pagination.phtml:45
 msgid "0 results"
 msgstr "0 resultados"
-
-#~ msgid "Items"
-#~ msgstr "Elementos"
-
-#~ msgid "items"
-#~ msgstr "elementos"
-
-#~ msgid "Site pages"
-#~ msgstr "Páginas del sitio"
