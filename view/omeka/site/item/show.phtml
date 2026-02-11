@@ -5,6 +5,10 @@ $escape = $this->plugin('escapeHtml');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
 
+$user = $this->identity();
+$adminBasePath = $user ? $this->url('admin') : '';
+$showToolboxForUser = $this->CanEditInCurrentSite();
+
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
@@ -23,7 +27,43 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
         <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 1); ?>
     </div>
     <div class="item-tags">
-        <?php echo $this->ResourceTags($item); ?>
+        <?php
+        // Calculate days since creation
+        $createdDate = $item->created();
+        $now = new DateTime();
+        $diff = $now->diff($createdDate);
+        $daysAgo = $diff->days;
+
+        // Get resource tags output
+        $resourceTagsHtml = $this->ResourceTags($item);
+
+        $actionsHtml = "";
+        if ($user && $showToolboxForUser):
+            $itemId = $item->id();
+            $editUrl = $adminBasePath . '/item/' . $itemId . '/edit';
+            $addMediaUrl = $adminBasePath . '/item/' . $itemId . '/edit#item-media';
+            $actionsHtml = '<ul class="item-actions">'
+                . '<li><a class="o-icon-edit" title="' . $escape($translate('Edit')) . '" href="' . $escape($editUrl) . '" aria-label="' . $escape($translate('Edit')) . '"></a></li>'
+                . '<li><a class="o-icon-add" title="' . $escape($translate('Add media')) . '" href="' . $escape($addMediaUrl) . '" aria-label="' . $escape($translate('Add media')) . '"></a></li>'
+                . '<li><a class="o-icon-delete" title="' . $escape($translate('Delete')) . '" href="#" aria-label="' . $escape($translate('Delete')) . '" data-item-id="' . $itemId . '" data-item-title="' . $escape($item->displayTitle(null, $valueLang)) . '"></a></li>'
+                . '</ul>';
+        endif;
+
+        // Create days ago tag
+        $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%);">'
+            . $escape($daysAgo) . ' ' . $escape($translate('days ago'))
+            . '</div>';
+
+        // Group actions and days-ago tag together
+        $actionsGroup = '<div class="resource-tags-group">' . $actionsHtml . $daysAgoTag . '</div>';
+
+        // If resource tags exist, inject our group inside; otherwise create wrapper
+        if (!empty($resourceTagsHtml)) {
+            echo substr($resourceTagsHtml, 0, -6) . $actionsGroup . '</div>';
+        } else {
+            echo '<div class="resource-tags">' . $actionsGroup . '</div>';
+        }
+        ?>
     </div>
 </div>
 
@@ -69,3 +109,23 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
 <?php endif; ?>
 
 <?php $this->trigger('view.show.after'); ?>
+
+<?php if ($user && $showToolboxForUser): ?>
+<?php
+    $csrfElement = new \Laminas\Form\Element\Csrf('confirmform_csrf');
+    $csrfToken = $csrfElement->getCsrfValidator()->getHash(true);
+?>
+<div id="delete-confirm-modal" class="delete-confirm-modal" style="display:none;"
+     data-csrf-token="<?php echo $escape($csrfToken); ?>"
+     data-admin-base-path="<?php echo $escape($this->url('admin')); ?>">
+    <div class="delete-confirm-modal__overlay"></div>
+    <div class="delete-confirm-modal__content">
+        <h3><?php echo $escape($translate('Confirm Delete')); ?></h3>
+        <p><?php echo $escape($translate('Are you sure you want to delete the item')); ?> "<span id="delete-item-title"></span>"?</p>
+        <div class="delete-confirm-modal__actions">
+            <button type="button" class="button btn--secondary" id="delete-cancel"><?php echo $escape($translate('Cancel')); ?></button>
+            <button type="button" class="button" id="delete-confirm"><?php echo $escape($translate('Confirm Delete')); ?></button>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

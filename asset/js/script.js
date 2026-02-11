@@ -107,6 +107,57 @@ const freedomScripts = () => {
         }
     });
 
+    // Delete confirmation modal
+    const deleteModal = document.getElementById('delete-confirm-modal');
+    if (deleteModal) {
+        const titleSpan = document.getElementById('delete-item-title');
+        const csrfToken = deleteModal.getAttribute('data-csrf-token');
+        const adminBasePath = deleteModal.getAttribute('data-admin-base-path');
+        let currentItemId = null;
+
+        document.querySelectorAll('.o-icon-delete').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentItemId = this.getAttribute('data-item-id');
+                titleSpan.textContent = this.getAttribute('data-item-title');
+                deleteModal.style.display = 'flex';
+            });
+        });
+
+        document.getElementById('delete-cancel').addEventListener('click', function() {
+            deleteModal.style.display = 'none';
+            currentItemId = null;
+        });
+
+        deleteModal.querySelector('.delete-confirm-modal__overlay').addEventListener('click', function() {
+            deleteModal.style.display = 'none';
+            currentItemId = null;
+        });
+
+        document.getElementById('delete-confirm').addEventListener('click', function() {
+            if (!currentItemId) return;
+            const deleteUrl = adminBasePath + '/item/' + currentItemId + '/delete';
+            const params = new URLSearchParams();
+            params.append('confirmform_csrf', csrfToken);
+            fetch(deleteUrl, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: params.toString()
+            }).then(function(response) {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    deleteModal.style.display = 'none';
+                }
+            }).catch(function() {
+                deleteModal.style.display = 'none';
+            });
+        });
+    }
+
     // Add class to properties with dcterms:relation field-term
     const properties = document.querySelectorAll('.property');
 
