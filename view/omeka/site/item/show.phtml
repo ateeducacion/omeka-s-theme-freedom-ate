@@ -115,7 +115,9 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
     $csrfElement = new \Laminas\Form\Element\Csrf('confirmform_csrf');
     $csrfToken = $csrfElement->getCsrfValidator()->getHash(true);
 ?>
-<div id="delete-confirm-modal" class="delete-confirm-modal" style="display:none;">
+<div id="delete-confirm-modal" class="delete-confirm-modal" style="display:none;"
+     data-csrf-token="<?php echo $escape($csrfToken); ?>"
+     data-admin-base-path="<?php echo $escape($this->url('admin')); ?>">
     <div class="delete-confirm-modal__overlay"></div>
     <div class="delete-confirm-modal__content">
         <h3><?php echo $escape($translate('Confirm Delete')); ?></h3>
@@ -126,64 +128,4 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
         </div>
     </div>
 </div>
-<script>
-(function() {
-    var modal = document.getElementById('delete-confirm-modal');
-    var titleSpan = document.getElementById('delete-item-title');
-    var currentItemId = null;
-    var csrfToken = <?php echo json_encode($csrfToken); ?>;
-    var adminBasePath = <?php echo json_encode($this->url('admin')); ?>;
-
-    document.querySelectorAll('.o-icon-delete').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            currentItemId = this.getAttribute('data-item-id');
-            titleSpan.textContent = this.getAttribute('data-item-title');
-            modal.style.display = 'flex';
-        });
-    });
-
-    document.getElementById('delete-cancel').addEventListener('click', function() {
-        modal.style.display = 'none';
-        currentItemId = null;
-    });
-
-    modal.querySelector('.delete-confirm-modal__overlay').addEventListener('click', function() {
-        modal.style.display = 'none';
-        currentItemId = null;
-    });
-
-    document.getElementById('delete-confirm').addEventListener('click', function() {
-        if (!currentItemId) return;
-        if (!csrfToken) {
-            alert('<?php echo $escape($translate('CSRF token not available. Please reload the page.')); ?>');
-            return;
-        }
-        var deleteUrl = adminBasePath + '/item/' + currentItemId + '/delete';
-        var params = new URLSearchParams();
-        params.append('confirmform_csrf', csrfToken);
-        fetch(deleteUrl, {
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: params.toString()
-        }).then(function(response) {
-            if (response.ok) {
-                window.location.reload();
-            } else if (response.status === 403) {
-                alert('<?php echo $escape($translate('Session expired or invalid token. Please reload the page and try again.')); ?>');
-                modal.style.display = 'none';
-            } else {
-                alert('<?php echo $escape($translate('Error deleting item. You may not have permission.')); ?>');
-                modal.style.display = 'none';
-            }
-        }).catch(function() {
-            alert('<?php echo $escape($translate('Network error. Please try again.')); ?>');
-            modal.style.display = 'none';
-        });
-    });
-})();
-</script>
 <?php endif; ?>
