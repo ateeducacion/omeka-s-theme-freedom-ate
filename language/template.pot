@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:39+0000\n"
+"POT-Creation-Date: 2026-02-13 10:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,39 +55,44 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:129
-#: view/omeka/site/item-set/browse.phtml:52
-#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
-msgid "Advanced search"
+#: view/omeka/site/item/browse.phtml:131
+msgid "Add new item"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:176 view/omeka/site/item/show.phtml:46
+#: view/omeka/site/item/browse.phtml:179 view/omeka/site/item/show.phtml:46
 msgid "Edit"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:177 view/omeka/site/item/show.phtml:47
+#: view/omeka/site/item/browse.phtml:180 view/omeka/site/item/show.phtml:47
 msgid "Add media"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:178 view/omeka/site/item/show.phtml:48
+#: view/omeka/site/item/browse.phtml:181 view/omeka/site/item/show.phtml:48
 msgid "Delete"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:184 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
 #, php-format
 msgid "%s day ago"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:220 view/omeka/site/item/browse.phtml:224
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s days ago"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:223 view/omeka/site/item/browse.phtml:228
 #: view/omeka/site/item/show.phtml:123 view/omeka/site/item/show.phtml:127
 msgid "Confirm Delete"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:221 view/omeka/site/item/show.phtml:124
+#: view/omeka/site/item/browse.phtml:224 view/omeka/site/item/show.phtml:124
 msgid "Are you sure you want to delete the item"
 msgstr ""
 
-#: view/omeka/site/item/browse.phtml:223 view/omeka/site/item/show.phtml:126
+#: view/omeka/site/item/browse.phtml:226 view/omeka/site/item/show.phtml:126
 msgid "Cancel"
 msgstr ""
 
@@ -100,10 +105,6 @@ msgstr ""
 msgid "No result found"
 msgstr ""
 
-#: view/omeka/site/index/search.phtml:96
-msgid "days ago"
-msgstr ""
-
 #: view/omeka/site/index/search.phtml:114
 #, php-format
 msgid "View all results (%s total)"
@@ -112,6 +113,11 @@ msgstr ""
 #: view/omeka/site/item-set/browse.phtml:39
 #: view/common/block-layout/item-with-metadata.phtml:62
 msgid "Item sets"
+msgstr ""
+
+#: view/omeka/site/item-set/browse.phtml:52
+#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
+msgid "Advanced search"
 msgstr ""
 
 #: view/omeka/site/item-set/browse.phtml:103
