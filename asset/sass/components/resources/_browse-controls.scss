@@ -29,7 +29,7 @@
         display: flex;
         flex-wrap: nowrap;
         gap: 15px;
-        margin-left: auto;
+        margin-left: 0;
         max-width: 100%;
 
         button {
@@ -40,7 +40,8 @@
     .advanced-search-container {
         display: flex;
         justify-content: flex-end;
-        width: 100%;
+        max-width: 100%;
+        align-items: center;
 
         a {
             font-size: $font__xs-size;

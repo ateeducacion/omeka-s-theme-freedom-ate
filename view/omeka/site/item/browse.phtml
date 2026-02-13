@@ -126,7 +126,10 @@ if (is_array($decoration) && in_array('media', $decoration)) {
     <?php endif; ?>
     <?php echo $this->browse()->renderSortSelector('items'); ?>
     <div class="advanced-search-container">
-        <?php echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?>
+        <?php /*echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']);*/ ?>
+        <?php if ($user && $showToolboxForUser): ?>
+            <a class="item-actions button" title="<?php echo $escape($translate('Add new item')); ?>" href="<?php echo $escape($adminBasePath . '/item/add'); ?>" aria-label="<?php echo $escape($translate('Add new item')); ?>" target="_self"><?php echo $escape($translate('Add new item')); ?></a>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -221,7 +224,8 @@ if (is_array($decoration) && in_array('media', $decoration)) {
         <p><?php echo $escape($translate('Are you sure you want to delete the item')); ?> "<span id="delete-item-title"></span>"?</p>
         <div class="delete-confirm-modal__actions">
             <button type="button" class="button btn--secondary" id="delete-cancel"><?php echo $escape($translate('Cancel')); ?></button>
-            <button type="button" class="button" id="delete-confirm"><?php echo $escape($translate('Confirm Delete')); ?></button>
+            <button type="button" class=
+            "button" id="delete-confirm"><?php echo $escape($translate('Confirm Delete')); ?></button>
         </div>
     </div>
 </div>

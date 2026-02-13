@@ -13,6 +13,22 @@ a[class*=o-icon-] {
     display: inline-block;
 }
 
+a.item-actions.button {
+    margin: 0;
+    padding: 10px 15px;
+    margin: 0 10px 0 10px;
+    &:before {
+        text-indent: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &:hover {
+        color: white;
+    }
+}
+
 .item-actions {
     margin: 0 10px 0 0;
     display: flex;
@@ -54,15 +70,15 @@ a[class*=o-icon-] {
     .inactive {
         display: none;
     }
-
-    button {
+    
+    // Estilos para <a> con clases .button y .o-icon-add
+    a.button {
         background-color: transparent;
         color: #a91919;
         margin: 0;
-        text-indent: -9999px;
-        position: relative;
-        padding: 0;
+        padding: 10px 15px;
         min-height: 0;
+        position: relative;
 
         &:before {
             text-indent: 0;
@@ -101,10 +117,6 @@ a[class*=o-icon-] {
 
     .o-icon-add {
         color: $color__gray-46;
-
-        /*&::before {
-            content: "\2b";
-        }*/
 
         &:hover {
             color: $color__black;
