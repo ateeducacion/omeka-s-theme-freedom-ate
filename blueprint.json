@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ateeducacion.github.io/omeka-s-playground/assets/blueprints/blueprint-schema.json",
+  "debug": {
+    "enabled": true
+  },
+  "landingPage": "/admin",
+  "siteOptions": {
+    "title": "Freedom ATE Playground",
+    "locale": "es",
+    "timezone": "Atlantic/Canary"
+  },
+  "users": [
+    {
+      "username": "admin",
+      "email": "admin@example.com",
+      "password": "password",
+      "role": "global_admin"
+    }
+  ],
+  "themes": [
+    {
+      "name": "freedom-ate",
+      "source": {
+        "type": "url",
+        "url": "https://github.com/ateeducacion/omeka-s-theme-freedom-ate/archive/refs/heads/master.zip"
+      }
+    }
+  ],
+  "site": {
+    "title": "Freedom ATE Demo",
+    "slug": "demo",
+    "theme": "freedom-ate",
+    "summary": "Minimal install to preview the Freedom ATE theme in Omeka S Playground.",
+    "isPublic": true,
+    "setAsDefault": true
+  }
+}

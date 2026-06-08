@@ -1,5 +1,10 @@
 # This is an adaptation of Freedom S Theme for using in ATE
 
+<a href="https://ateeducacion.github.io/omeka-s-playground/?blueprint=https%3A%2F%2Fraw.githubusercontent.com%2Fateeducacion%2Fomeka-s-theme-freedom-ate%2Frefs%2Fheads%2Fmaster%2Fblueprint.json">
+  <img src="https://raw.githubusercontent.com/ateeducacion/omeka-s-theme-freedom-ate/refs/heads/master/.github/assets/playground-preview-button.svg" alt="Try Freedom ATE in your browser" width="224">
+</a><br>
+<small><a href="https://ateeducacion.github.io/omeka-s-playground/?blueprint=https%3A%2F%2Fraw.githubusercontent.com%2Fateeducacion%2Fomeka-s-theme-freedom-ate%2Frefs%2Fheads%2Fmaster%2Fblueprint.json">Try in your browser</a></small>
+
 This is an Omeka S theme that offers some custom options and a clean design.
 ![Freedom Theme](https://github.com/omeka-s-themes/freedom/blob/master/theme.jpg?raw=true)
 
