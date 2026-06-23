@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/nelsonamaya82/theme-freedom#readme",
   "devDependencies": {
-    "autoprefixer": "^9.2.1",
+    "autoprefixer": "^10.5.0",
     "gettext-parser": "^8.0.0",
     "gulp": "^4.0.2",
     "gulp-postcss": "^10.0.0",
