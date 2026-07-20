@@ -83,6 +83,57 @@ msgstr ""
 msgid "%s days ago"
 msgstr ""
 
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+msgid "today"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s week ago"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s weeks ago"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s month ago"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s months ago"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%sd"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%sw"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%smo"
+msgstr ""
+
+#: view/omeka/site/item/browse.phtml:221 view/omeka/site/item/show.phtml:121
+msgid "The item could not be deleted."
+msgstr ""
+
 #: view/omeka/site/item/browse.phtml:223 view/omeka/site/item/browse.phtml:228
 #: view/omeka/site/item/show.phtml:123 view/omeka/site/item/show.phtml:127
 msgid "Confirm Delete"
@@ -116,8 +167,12 @@ msgid "Item sets"
 msgstr ""
 
 #: view/omeka/site/item-set/browse.phtml:52
-#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
+#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:12
 msgid "Advanced search"
+msgstr ""
+
+#: view/common/header.phtml:38
+msgid "Landing page"
 msgstr ""
 
 #: view/omeka/site/item-set/browse.phtml:103

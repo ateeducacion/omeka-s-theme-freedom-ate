@@ -111,15 +111,21 @@ const freedomScripts = () => {
     const deleteModal = document.getElementById('delete-confirm-modal');
     if (deleteModal) {
         const titleSpan = document.getElementById('delete-item-title');
+        const errorSpan = document.getElementById('delete-error');
         const csrfToken = deleteModal.getAttribute('data-csrf-token');
         const adminBasePath = deleteModal.getAttribute('data-admin-base-path');
+        const deleteErrorMessage = deleteModal.getAttribute('data-error-message') || 'Error';
         let currentItemId = null;
 
         document.querySelectorAll('.o-icon-delete').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                currentItemId = this.getAttribute('data-item-id');
+                const itemId = this.getAttribute('data-item-id');
+                // The id goes straight into the delete URL, so only accept digits.
+                if (!/^\d+$/.test(itemId || '')) return;
+                currentItemId = itemId;
                 titleSpan.textContent = this.getAttribute('data-item-title');
+                errorSpan.textContent = '';
                 deleteModal.style.display = 'flex';
             });
         });
@@ -150,10 +156,11 @@ const freedomScripts = () => {
                 if (response.ok) {
                     window.location.reload();
                 } else {
-                    deleteModal.style.display = 'none';
+                    // Keep the modal open so the failure is not silent.
+                    errorSpan.textContent = deleteErrorMessage;
                 }
             }).catch(function() {
-                deleteModal.style.display = 'none';
+                errorSpan.textContent = deleteErrorMessage;
             });
         });
     }

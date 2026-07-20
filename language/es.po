@@ -82,6 +82,57 @@ msgstr "hace %s día"
 msgid "%s days ago"
 msgstr "hace %s días"
 
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+msgid "today"
+msgstr "hoy"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s week ago"
+msgstr "hace %s semana"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s weeks ago"
+msgstr "hace %s semanas"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s month ago"
+msgstr "hace %s mes"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%s months ago"
+msgstr "hace %s meses"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%sd"
+msgstr "%sd"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%sw"
+msgstr "%ssem"
+
+#: view/omeka/site/item/browse.phtml:187 view/omeka/site/item/show.phtml:54
+#: view/omeka/site/index/search.phtml:96
+#, php-format
+msgid "%smo"
+msgstr "%sm"
+
+#: view/omeka/site/item/browse.phtml:221 view/omeka/site/item/show.phtml:121
+msgid "The item could not be deleted."
+msgstr "No se ha podido eliminar la ficha."
+
 #: view/omeka/site/item/browse.phtml:223 view/omeka/site/item/browse.phtml:228
 #: view/omeka/site/item/show.phtml:123 view/omeka/site/item/show.phtml:127
 msgid "Confirm Delete"
@@ -115,9 +166,13 @@ msgid "Item sets"
 msgstr "Colecciones"
 
 #: view/omeka/site/item-set/browse.phtml:52
-#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:9
+#: view/omeka/site/media/browse.phtml:52 view/common/header.phtml:12
 msgid "Advanced search"
 msgstr "Búsqueda avanzada"
+
+#: view/common/header.phtml:38
+msgid "Landing page"
+msgstr "Página de inicio"
 
 #: view/omeka/site/item-set/browse.phtml:103
 msgid "item"

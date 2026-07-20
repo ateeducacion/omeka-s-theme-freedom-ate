@@ -80,20 +80,18 @@ if (is_array($decoration) && in_array('media', $decoration)) {
                                 <?php endif; ?>
                             </div>
                             <?php
-                            // Only show days ago tag for items
-                            if ($resourceName === 'items' && method_exists($resource, 'created')):
-                                // Calculate days since creation
-                                $createdDate = $resource->created();
-                                $now = new DateTime();
-                                $diff = $now->diff($createdDate);
-                                $daysAgo = $diff->days;
+                            // How long ago the item was published (dcterms:date, or creation date)
+                            $age = ($resourceName === 'items') ? $this->ResourceAge($resource) : null;
 
+                            // Only show days ago tag for items with a usable date
+                            if ($age !== null):
                                 // Get resource tags output
                                 $resourceTagsHtml = $this->ResourceTags($resource);
 
                                 // Create days ago tag
-                                $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%);">'
-                                    . $escape(sprintf($translate($daysAgo == 1 ?  '%s day ago' : '%s days ago'), $daysAgo))
+                                $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%);" title="' . $escape($age['long']) . '">'
+                                    . '<span class="days-ago-tag__long">' . $escape($age['long']) . '</span>'
+                                    . '<span class="days-ago-tag__short" aria-hidden="true">' . $escape($age['short']) . '</span>'
                                     . '</div>';
 
                                 // If resource tags exist, inject our tag inside; otherwise create wrapper
