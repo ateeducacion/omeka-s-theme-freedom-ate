@@ -1,3 +1,6 @@
+<!-- markdownlint-disable MD033 -->
+**English** · [Español](README.es.md)
+
 # Freedom ATE — Omeka S theme
 
 An Omeka S theme for **ATE Educación** (Área de Tecnología Educativa, Consejería de
