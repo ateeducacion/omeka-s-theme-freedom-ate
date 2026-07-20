@@ -3,14 +3,18 @@ $escHtml = $this->plugin('escapeHtml');
 $escAttr = $this->plugin('escapeHtmlAttr');
 
 $banner = $this->themeSettingAsset('banner');
-$bannerWidth = $this->themeSetting('banner_width') ?? '';
-$bannerHeight = $this->themeSetting('banner_height') ?? '';
-$bannerVerticalPosition = ($this->themeSetting('banner_v_position')) ?? 'center';
-$bannerHorizontalPosition = ($this->themeSetting('banner_h_position')) ?? 'center';
+
+// Values below end up in style rules and class attributes, so each one is
+// restricted to what its form element is meant to produce.
+$positions = ['left', 'center', 'right'];
+$bannerWidth = in_array($this->themeSetting('banner_width'), ['container', 'alignfull']) ? $this->themeSetting('banner_width') : '';
+$bannerHeight = $this->SafeCssLength($this->themeSetting('banner_height'));
+$bannerVerticalPosition = in_array($this->themeSetting('banner_v_position'), ['top', 'center', 'bottom']) ? $this->themeSetting('banner_v_position') : 'center';
+$bannerHorizontalPosition = in_array($this->themeSetting('banner_h_position'), $positions) ? $this->themeSetting('banner_h_position') : 'center';
 
 $bannerHeading = $this->themeSetting('banner_heading');
 $bannerDescription = $this->themeSetting('banner_description');
-$bannerContentPosition = $this->themeSetting('banner_content_position') ?? 'left';
+$bannerContentPosition = in_array($this->themeSetting('banner_content_position'), $positions) ? $this->themeSetting('banner_content_position') : 'left';
 
 $bannerHeightProperty = $bannerHeading || $bannerDescription ? 'min-height' : 'height';
 

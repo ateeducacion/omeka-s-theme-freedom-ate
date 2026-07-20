@@ -177,6 +177,15 @@ a.item-actions.button {
         }
     }
 
+    // Empty until a delete request fails, so it takes no space by default.
+    &__error {
+        color: $color__error;
+
+        &:empty {
+            display: none;
+        }
+    }
+
     &__actions {
         display: flex;
         justify-content: flex-end;

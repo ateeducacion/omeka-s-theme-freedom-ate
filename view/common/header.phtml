@@ -1,11 +1,30 @@
 <?php
 $translate = $this->plugin('translate');
 $navDepth = (int) $this->themeSetting('nav_depth') ? (int) $this->themeSetting('nav_depth') -1 : -1;
+$topBarLogo = $this->themeSetting('top_bar_logo');
+// The URL has no usable default: the installation root just redirects to the
+// default site, so the link is only shown once an explicit URL is configured.
+$landingUrl = $this->SafeUrl($this->themeSetting('landing_link_url'));
+$landingLink = $this->themeSetting('landing_link')
+    && $this->themeSetting('landing_link_logo')
+    && null !== $landingUrl;
 ?>
 
 <header class="main-header">
 
 	<div class="main-header__top-bar container">
+		<?php if ($topBarLogo || $landingLink): ?>
+			<div class="main-header__top-bar-brand">
+				<?php if ($topBarLogo): ?>
+					<img class="main-header__top-bar-logo" src="<?php echo $this->themeSettingAssetUrl('top_bar_logo'); ?>" alt="" />
+				<?php endif; ?>
+				<?php if ($landingLink): ?>
+					<a class="main-header__landing-link" href="<?php echo $this->escapeHtmlAttr($landingUrl); ?>" aria-label="<?php echo $this->escapeHtmlAttr($translate('Landing page')); ?>">
+						<img src="<?php echo $this->themeSettingAssetUrl('landing_link_logo'); ?>" alt="" />
+					</a>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 		<a class="main-header__advanced-search" href="<?php echo $site->url() . '/item/search'; ?>"><?php echo $translate('Advanced search'); ?></a>
 		<div class="main-header__actions-group">
 			<div class="main-header__search-form">

@@ -4,6 +4,19 @@ const resourceLinkInfoScript = () => {
     // the linked resource's description as an inline accordion panel.
     // Uses MutationObserver to also handle links injected dynamically (e.g. faceted-browse AJAX).
 
+    // Replaces the panel content with a single element holding plain text.
+    // Values coming from the API are always set through textContent, never
+    // concatenated into HTML, so markup in a description cannot execute.
+    function setPanelMessage(panel, tagName, className, text) {
+        const el = document.createElement(tagName);
+        if (className) {
+            el.className = className;
+        }
+        el.textContent = text;
+        panel.textContent = '';
+        panel.appendChild(el);
+    }
+
     function processLink(link) {
         // Skip if already processed
         if (link.closest('.resource-link-info')) return;
@@ -39,7 +52,7 @@ const resourceLinkInfoScript = () => {
         const panel = document.createElement('div');
         panel.className = 'resource-link-info__panel';
         panel.style.maxHeight = '0';
-        panel.innerHTML = '<span class="resource-link-info__loading">…</span>';
+        setPanelMessage(panel, 'span', 'resource-link-info__loading', '…');
         wrapper.appendChild(panel);
 
         let loaded = false;
@@ -60,24 +73,33 @@ const resourceLinkInfoScript = () => {
 
                 if (!loaded) {
                     loaded = true;
-                    fetch('/api/items/' + itemId)
+                    // The link href carries the installation base path
+                    // (/subdir/s/slug/item/123), so derive it instead of
+                    // assuming Omeka lives at the domain root.
+                    const siteMatch = href.match(/^(.*?)\/s\//);
+                    const basePath = siteMatch ? siteMatch[1] : '';
+
+                    fetch(basePath + '/api/items/' + itemId)
                         .then(function (res) { return res.json(); })
                         .then(function (data) {
                             const descriptions = data['dcterms:description'];
-                            let html = '';
                             if (descriptions && descriptions.length > 0) {
+                                const fragment = document.createDocumentFragment();
                                 descriptions.forEach(function (desc) {
-                                    html += '<p>' + (desc['@value'] || '') + '</p>';
+                                    const p = document.createElement('p');
+                                    p.textContent = desc['@value'] || '';
+                                    fragment.appendChild(p);
                                 });
+                                panel.textContent = '';
+                                panel.appendChild(fragment);
                             } else {
-                                html = '<p class="resource-link-info__empty">—</p>';
+                                setPanelMessage(panel, 'p', 'resource-link-info__empty', '—');
                             }
-                            panel.innerHTML = html;
                             // Recalculate height after content is set
                             panel.style.maxHeight = panel.scrollHeight + 'px';
                         })
                         .catch(function () {
-                            panel.innerHTML = '<p class="resource-link-info__error">Error loading info.</p>';
+                            setPanelMessage(panel, 'p', 'resource-link-info__error', 'Error loading info.');
                             panel.style.maxHeight = panel.scrollHeight + 'px';
                         });
                 }

@@ -18,3 +18,40 @@
         }
     }
 }
+
+// The age tag carries both a full and an abbreviated label. The full one is
+// never removed from the DOM, only hidden visually, so screen readers always
+// announce "5 months ago" rather than "5mo" — hence the short form is
+// aria-hidden in the markup.
+.days-ago-tag {
+    white-space: nowrap;
+
+    &__long {
+        border: 0;
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute !important;
+        width: 1px;
+        word-wrap: normal !important;
+    }
+
+    @media (min-width: $md) {
+        &__long {
+            clip: auto;
+            clip-path: none;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static !important;
+            width: auto;
+        }
+
+        &__short {
+            display: none;
+        }
+    }
+}

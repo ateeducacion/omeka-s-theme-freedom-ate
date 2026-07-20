@@ -28,7 +28,7 @@ if ( $footerMenu && ( $footerLogo || $footerSiteInfo ) && $footerContent ) {
 $hasSocialNetworks = false;
 
 foreach ( $socialNetworks as $social_network ) {
-	if ( $this->themeSetting( "{$social_network}_url" ) ) {
+	if ( $this->SafeUrl( $this->themeSetting( "{$social_network}_url" ) ) ) {
 		$hasSocialNetworks = true;
 		break;
 	}
@@ -98,8 +98,8 @@ foreach ( $socialNetworks as $social_network ) {
 			<?php if ($hasSocialNetworks) : ?>
 				<div class="main-footer__social-network">
 					<?php foreach ( $socialNetworks as $social_network ) : ?>
-						<?php if ( $social_network_url = $this->themeSetting( "{$social_network}_url" ) ) : ?>
-							<a href="<?php echo $social_network_url; ?>">
+						<?php if ( $social_network_url = $this->SafeUrl( $this->themeSetting( "{$social_network}_url" ) ) ) : ?>
+							<a href="<?php echo $escAttr( $social_network_url ); ?>">
 								<img src="<?php echo $this->assetUrl( "img/{$social_network}.svg" ); ?>"
 									alt="<?php echo $escAttr( $social_network ); ?>">
 							</a>

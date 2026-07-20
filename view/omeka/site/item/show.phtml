@@ -28,11 +28,8 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
     </div>
     <div class="item-tags">
         <?php
-        // Calculate days since creation
-        $createdDate = $item->created();
-        $now = new DateTime();
-        $diff = $now->diff($createdDate);
-        $daysAgo = $diff->days;
+        // How long ago the item was published (dcterms:date, or creation date)
+        $age = $this->ResourceAge($item);
 
         // Get resource tags output
         $resourceTagsHtml = $this->ResourceTags($item);
@@ -50,9 +47,13 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
         endif;
 
         // Create days ago tag
-        $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%);">'
-            . $escape(sprintf($translate($daysAgo == 1 ?  '%s day ago' : '%s days ago'), $daysAgo))
-            . '</div>';
+        $daysAgoTag = '';
+        if ($age !== null) {
+            $daysAgoTag = '<div class="resource-tag days-ago-tag" style="background-color: hsl(200, 70%, 85%);" title="' . $escape($age['long']) . '">'
+                . '<span class="days-ago-tag__long">' . $escape($age['long']) . '</span>'
+                . '<span class="days-ago-tag__short" aria-hidden="true">' . $escape($age['short']) . '</span>'
+                . '</div>';
+        }
 
         // Group actions and days-ago tag together
         $actionsGroup = '<div class="resource-tags-group">' . $actionsHtml . $daysAgoTag . '</div>';
@@ -117,11 +118,13 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
 ?>
 <div id="delete-confirm-modal" class="delete-confirm-modal" style="display:none;"
      data-csrf-token="<?php echo $escape($csrfToken); ?>"
-     data-admin-base-path="<?php echo $escape($this->url('admin')); ?>">
+     data-admin-base-path="<?php echo $escape($this->url('admin')); ?>"
+     data-error-message="<?php echo $escape($translate('The item could not be deleted.')); ?>">
     <div class="delete-confirm-modal__overlay"></div>
     <div class="delete-confirm-modal__content">
         <h3><?php echo $escape($translate('Confirm Delete')); ?></h3>
         <p><?php echo $escape($translate('Are you sure you want to delete the item')); ?> "<span id="delete-item-title"></span>"?</p>
+        <p class="delete-confirm-modal__error" id="delete-error" role="alert"></p>
         <div class="delete-confirm-modal__actions">
             <button type="button" class="button btn--secondary" id="delete-cancel"><?php echo $escape($translate('Cancel')); ?></button>
             <button type="button" class="button" id="delete-confirm"><?php echo $escape($translate('Confirm Delete')); ?></button>
