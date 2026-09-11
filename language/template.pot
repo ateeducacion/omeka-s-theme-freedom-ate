@@ -501,31 +501,43 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:89
+#: view/common/resource-page-block-layout/media-embeds.phtml:91
 msgid "Download"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:88
+#: view/common/resource-page-block-layout/media-embeds.phtml:89
 msgid "Copy this text:"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:95
+#: view/common/resource-page-block-layout/media-embeds.phtml:99
 msgid "Copy link"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:94
+#: view/common/resource-page-block-layout/media-embeds.phtml:98
 msgid "Link copied"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:102
+#: view/common/resource-page-block-layout/media-embeds.phtml:107
 msgid "Copy embed code"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:101
+#: view/common/resource-page-block-layout/media-embeds.phtml:106
 msgid "Embed code copied"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:117
+#: view/common/resource-page-block-layout/media-embeds.phtml:94
+msgid "Download the original file to your device."
+msgstr ""
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:102
+msgid "Copy the link to this media page, to share it by email, chat or social networks."
+msgstr ""
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:110
+msgid "Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website."
+msgstr ""
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:123
 msgid "Other Media"
 msgstr ""
 

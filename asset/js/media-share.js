@@ -37,20 +37,43 @@ const mediaShareScript = () => {
 
     function showCopied(button) {
         const icon = button.querySelector('.material-symbols-outlined');
+        const tooltip = button.querySelector('.media-action-tooltip');
         if (!button.dataset.icon) {
             button.dataset.icon = icon.textContent;
+            button.dataset.tooltip = tooltip.textContent;
         }
         icon.textContent = 'check';
+        tooltip.textContent = button.dataset.copiedMessage;
         button.classList.add('is-copied');
         liveRegion.textContent = button.dataset.copiedMessage;
 
         clearTimeout(button.copiedTimeout);
         button.copiedTimeout = setTimeout(() => {
             icon.textContent = button.dataset.icon;
+            tooltip.textContent = button.dataset.tooltip;
             button.classList.remove('is-copied');
             liveRegion.textContent = '';
         }, feedbackDelay);
     }
+
+    // Escape hides the tooltip under the pointer/focus until it leaves.
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') {
+            return;
+        }
+        document.querySelectorAll('.media-action:hover, .media-action:focus-visible').forEach((action) => {
+            action.classList.add('tooltip-dismissed');
+        });
+    });
+
+    ['mouseout', 'focusout'].forEach((type) => {
+        document.addEventListener(type, (event) => {
+            const action = event.target.closest && event.target.closest('.media-action');
+            if (action && !action.contains(event.relatedTarget)) {
+                action.classList.remove('tooltip-dismissed');
+            }
+        });
+    });
 
     document.addEventListener('click', (event) => {
         const button = event.target.closest('.media-copy');

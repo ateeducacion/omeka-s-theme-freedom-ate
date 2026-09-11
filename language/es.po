@@ -502,31 +502,43 @@ msgstr "Recursos vinculados"
 msgid "Files"
 msgstr "Archivos"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:89
+#: view/common/resource-page-block-layout/media-embeds.phtml:91
 msgid "Download"
 msgstr "Descargar"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:88
+#: view/common/resource-page-block-layout/media-embeds.phtml:89
 msgid "Copy this text:"
 msgstr "Copia este texto:"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:95
+#: view/common/resource-page-block-layout/media-embeds.phtml:99
 msgid "Copy link"
 msgstr "Copiar enlace"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:94
+#: view/common/resource-page-block-layout/media-embeds.phtml:98
 msgid "Link copied"
 msgstr "Enlace copiado"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:102
+#: view/common/resource-page-block-layout/media-embeds.phtml:107
 msgid "Copy embed code"
 msgstr "Copiar código para insertar"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:101
+#: view/common/resource-page-block-layout/media-embeds.phtml:106
 msgid "Embed code copied"
 msgstr "Código para insertar copiado"
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:117
+#: view/common/resource-page-block-layout/media-embeds.phtml:94
+msgid "Download the original file to your device."
+msgstr "Descarga el archivo original en tu equipo."
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:102
+msgid "Copy the link to this media page, to share it by email, chat or social networks."
+msgstr "Copia el enlace a la página de este medio para compartirlo por correo, chat o redes sociales."
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:110
+msgid "Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website."
+msgstr "Copia el código HTML para insertar este medio en un blog de WordPress (pégalo en un bloque «HTML personalizado») o en cualquier otra web."
+
+#: view/common/resource-page-block-layout/media-embeds.phtml:123
 msgid "Other Media"
 msgstr "Otros medios"
 

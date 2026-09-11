@@ -85,23 +85,29 @@ $this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
                         <?php if ($media->displayTitle()): ?>
                         <span class="media-title"><?php echo $media->displayTitle(); ?></span>
                         <?php endif; ?>
+                        <?php $tipId = 'media-' . $media->id() . '-tip-'; ?>
                         <div class="media-actions" data-copy-fallback-message="<?php echo $escAttr($this->translate('Copy this text:')); ?>">
-                            <a href="<?php echo $this->escapeHtml($media->originalUrl()); ?>" download class="media-action media-download" title="<?php echo $this->translate('Download'); ?>">
-                                <span class="material-symbols-outlined">download</span>
+                            <a href="<?php echo $this->escapeHtml($media->originalUrl()); ?>" download class="media-action media-download"
+                                aria-label="<?php echo $escAttr($this->translate('Download')); ?>"
+                                aria-describedby="<?php echo $tipId; ?>download">
+                                <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                                <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>download"><?php echo $escape($this->translate('Download the original file to your device.')); ?></span>
                             </a>
                             <button type="button" class="media-action media-copy"
                                 data-copy-text="<?php echo $escAttr($media->siteUrl(null, true)); ?>"
                                 data-copied-message="<?php echo $escAttr($this->translate('Link copied')); ?>"
-                                title="<?php echo $escAttr($this->translate('Copy link')); ?>"
-                                aria-label="<?php echo $escAttr($this->translate('Copy link')); ?>">
+                                aria-label="<?php echo $escAttr($this->translate('Copy link')); ?>"
+                                aria-describedby="<?php echo $tipId; ?>link">
                                 <span class="material-symbols-outlined" aria-hidden="true">link</span>
+                                <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>link"><?php echo $escape($this->translate('Copy the link to this media page, to share it by email, chat or social networks.')); ?></span>
                             </button>
                             <button type="button" class="media-action media-copy"
                                 data-copy-text="<?php echo $escAttr($embedCode($media)); ?>"
                                 data-copied-message="<?php echo $escAttr($this->translate('Embed code copied')); ?>"
-                                title="<?php echo $escAttr($this->translate('Copy embed code')); ?>"
-                                aria-label="<?php echo $escAttr($this->translate('Copy embed code')); ?>">
+                                aria-label="<?php echo $escAttr($this->translate('Copy embed code')); ?>"
+                                aria-describedby="<?php echo $tipId; ?>embed">
                                 <span class="material-symbols-outlined" aria-hidden="true">code</span>
+                                <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>embed"><?php echo $escape($this->translate('Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website.')); ?></span>
                             </button>
                         </div>
                     </div>
