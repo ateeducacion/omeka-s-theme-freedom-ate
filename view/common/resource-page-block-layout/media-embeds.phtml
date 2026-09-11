@@ -11,6 +11,41 @@ foreach ($resourceMedia as $media) {
     }
     $mediaByType[$mediaType][] = $media;
 }
+
+$escape = $this->plugin('escapeHtml');
+$escAttr = $this->plugin('escapeHtmlAttr');
+
+// Raster formats every browser renders; anything else (TIFF, JP2...) is
+// embedded through its large derivative instead of the original file.
+$webImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/avif', 'image/svg+xml'];
+
+// Snippet to paste into WordPress (Custom HTML block) or any other site. The
+// caption links back to the media page so the source stays credited.
+$embedCode = function ($media) use ($escape, $escAttr, $webImageTypes) {
+    $fileUrl = $media->originalUrl();
+    $pageUrl = $media->siteUrl(null, true);
+    $title = (string) $media->displayTitle();
+    $mediaType = (string) $media->mediaType();
+
+    if (strpos($mediaType, 'image/') === 0) {
+        $src = in_array($mediaType, $webImageTypes) || !$media->hasThumbnails()
+            ? $fileUrl
+            : $media->thumbnailUrl('large');
+        $body = sprintf('<img src="%s" alt="%s" style="max-width:100%%;height:auto;">', $escAttr($src), $escAttr($title));
+    } elseif (strpos($mediaType, 'video/') === 0) {
+        $body = sprintf('<video src="%s" controls preload="metadata" style="max-width:100%%;"></video>', $escAttr($fileUrl));
+    } elseif (strpos($mediaType, 'audio/') === 0) {
+        $body = sprintf('<audio src="%s" controls preload="metadata"></audio>', $escAttr($fileUrl));
+    } elseif ($mediaType === 'application/pdf') {
+        $body = sprintf('<iframe src="%s" title="%s" width="100%%" height="600" style="border:0;" loading="lazy"></iframe>', $escAttr($fileUrl), $escAttr($title));
+    } else {
+        return sprintf('<a href="%s">%s</a>', $escAttr($fileUrl), $escape($title));
+    }
+
+    return sprintf('<figure>%s<figcaption><a href="%s">%s</a></figcaption></figure>', $body, $escAttr($pageUrl), $escape($title));
+};
+
+$this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
 ?>
 <?php if ($resourceMedia): ?>
     <?php // Render HTML media first, outside media-embeds ?>
@@ -50,9 +85,31 @@ foreach ($resourceMedia as $media) {
                         <?php if ($media->displayTitle()): ?>
                         <span class="media-title"><?php echo $media->displayTitle(); ?></span>
                         <?php endif; ?>
-                        <a href="<?php echo $this->escapeHtml($media->originalUrl()); ?>" download class="media-download" title="<?php echo $this->translate('Download'); ?>">
-                            <span class="material-symbols-outlined">download</span>
-                        </a>
+                        <?php $tipId = 'media-' . $media->id() . '-tip-'; ?>
+                        <div class="media-actions" data-copy-fallback-message="<?php echo $escAttr($this->translate('Copy this text:')); ?>">
+                            <a href="<?php echo $this->escapeHtml($media->originalUrl()); ?>" download class="media-action media-download"
+                                aria-label="<?php echo $escAttr($this->translate('Download')); ?>"
+                                aria-describedby="<?php echo $tipId; ?>download">
+                                <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                                <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>download"><?php echo $escape($this->translate('Download the original file to your device.')); ?></span>
+                            </a>
+                            <button type="button" class="media-action media-copy"
+                                data-copy-text="<?php echo $escAttr($media->siteUrl(null, true)); ?>"
+                                data-copied-message="<?php echo $escAttr($this->translate('Link copied')); ?>"
+                                aria-label="<?php echo $escAttr($this->translate('Copy link')); ?>"
+                                aria-describedby="<?php echo $tipId; ?>link">
+                                <span class="material-symbols-outlined" aria-hidden="true">link</span>
+                                <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>link"><?php echo $escape($this->translate('Copy the link to this media page, to share it by email, chat or social networks.')); ?></span>
+                            </button>
+                            <button type="button" class="media-action media-copy"
+                                data-copy-text="<?php echo $escAttr($embedCode($media)); ?>"
+                                data-copied-message="<?php echo $escAttr($this->translate('Embed code copied')); ?>"
+                                aria-label="<?php echo $escAttr($this->translate('Copy embed code')); ?>"
+                                aria-describedby="<?php echo $tipId; ?>embed">
+                                <span class="material-symbols-outlined" aria-hidden="true">code</span>
+                                <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>embed"><?php echo $escape($this->translate('Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website.')); ?></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
