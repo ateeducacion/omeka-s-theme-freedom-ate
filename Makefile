@@ -106,7 +106,7 @@ package:
 	echo "Creating directory structure..."; \
 	rm -rf tmpzip && mkdir -p tmpzip/freedom-ate; \
 	echo "Copying theme files..."; \
-	rsync -av --exclude='tmpzip' --exclude='.git' --exclude='*.zip' --exclude='node_modules' --exclude='.DS_Store' ./ tmpzip/freedom-ate/; \
+	rsync -av --exclude='tmpzip' --exclude='.git' --exclude='*.zip' --exclude='node_modules' --exclude='.DS_Store' --exclude='.agents' --exclude='.claude' --exclude='AGENTS.md' --exclude='CLAUDE.md' ./ tmpzip/freedom-ate/; \
 	echo "Creating ZIP archive: freedom-ate-$(VERSION).zip..."; \
 	cd tmpzip && zip -qr ../freedom-ate-$(VERSION).zip freedom-ate && cd ..; \
 	rm -rf tmpzip; \
