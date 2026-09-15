@@ -497,47 +497,47 @@ msgstr ""
 msgid "Linked resources"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:77
+#: view/common/resource-page-block-layout/media-embeds.phtml:76
 msgid "Files"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:91
+#: view/common/resource-page-block-layout/media-embeds.phtml:90
 msgid "Download"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:89
+#: view/common/resource-page-block-layout/media-embeds.phtml:88
 msgid "Copy this text:"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:99
+#: view/common/resource-page-block-layout/media-embeds.phtml:98
 msgid "Copy link"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:98
+#: view/common/resource-page-block-layout/media-embeds.phtml:97
 msgid "Link copied"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:107
+#: view/common/resource-page-block-layout/media-embeds.phtml:106
 msgid "Copy embed code"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:106
+#: view/common/resource-page-block-layout/media-embeds.phtml:105
 msgid "Embed code copied"
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:94
+#: view/common/resource-page-block-layout/media-embeds.phtml:93
 msgid "Download the original file to your device."
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:102
-msgid "Copy the link to this media page, to share it by email, chat or social networks."
+#: view/common/resource-page-block-layout/media-embeds.phtml:101
+msgid "Copy the direct link to this file, to share it by email, chat or social networks."
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:110
+#: view/common/resource-page-block-layout/media-embeds.phtml:109
 msgid "Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website."
 msgstr ""
 
-#: view/common/resource-page-block-layout/media-embeds.phtml:123
+#: view/common/resource-page-block-layout/media-embeds.phtml:122
 msgid "Other Media"
 msgstr ""
 
