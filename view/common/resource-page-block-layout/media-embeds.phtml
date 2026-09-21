@@ -68,6 +68,17 @@ $this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
         $fileMedia = isset($otherMediaTypes['file']) ? $otherMediaTypes['file'] : [];
         $otherMedia = $otherMediaTypes;
         unset($otherMedia['file']);
+
+        // eXeLearning packages get their own section. Older uploads may still
+        // carry the generic `file` renderer, so match the extension there too.
+        $exeMedia = isset($otherMedia['exelearning_renderer']) ? $otherMedia['exelearning_renderer'] : [];
+        unset($otherMedia['exelearning_renderer']);
+        foreach ($fileMedia as $key => $media) {
+            if (strtolower((string) $media->extension()) === 'elpx') {
+                $exeMedia[] = $media;
+                unset($fileMedia[$key]);
+            }
+        }
         ?>
 
         <?php // File group with download cards ?>
@@ -109,6 +120,25 @@ $this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
                                 <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>embed"><?php echo $escape($this->translate('Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website.')); ?></span>
                             </button>
                         </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <?php // eXeLearning packages, one full-width card per row ?>
+        <?php if ($exeMedia): ?>
+        <div class="media-group-section">
+            <h3 class="media-group-title media-group-title-brand">eXeLearning</h3>
+            <div class="media-group exelearning">
+                <?php foreach ($exeMedia as $media): ?>
+                <div class="media-card media-type-card exelearning-card">
+                    <div class="media-card-content">
+                        <?php echo $media->render(); ?>
+                    </div>
+                    <div class="media-card-footer media-type-footer">
+                        <span class="resource-tag media-type-tag">eXeLearning</span>
                     </div>
                 </div>
                 <?php endforeach; ?>
