@@ -13,6 +13,11 @@
     padding-bottom: 0.75rem;
     border-bottom: 2px solid #e0e0e0;
     text-transform: capitalize;
+
+    // Brand names keep their own casing (eXeLearning)
+    &.media-group-title-brand {
+      text-transform: none;
+    }
   }
 }
 
@@ -298,6 +303,37 @@
     }
   }
 
+  // eXeLearning: one card per row, twice as tall as the other media
+  .media-group.exelearning {
+    grid-template-columns: 1fr;
+
+    .media-render {
+      height: 800px;
+
+      // Let the package viewer fill the card instead of its fixed height
+      .exelearning-viewer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+      }
+
+      // The card's full-size link rule is meant for thumbnails, not toolbar buttons
+      .exelearning-toolbar a {
+        display: inline-flex;
+        width: auto;
+        height: auto;
+      }
+
+      .exelearning-iframe {
+        flex: 1;
+        min-height: 0;
+        max-height: none;
+        height: auto !important; // overrides the renderer's inline height
+      }
+    }
+  }
+
   // Responsive: una sola columna en móvil
   @media (max-width: 768px) {
     .media-group:not(.masonry-grid) {
@@ -306,6 +342,10 @@
 
     .media-render {
       height: 250px;
+    }
+
+    .media-group.exelearning .media-render {
+      height: 500px;
     }
   }
 }
