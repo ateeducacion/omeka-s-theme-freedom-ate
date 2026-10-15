@@ -44,6 +44,18 @@ $embedCode = function ($media) use ($escape, $escAttr, $webImageTypes) {
     return sprintf('<a href="%s">%s</a>', $escAttr($fileUrl), $escape($title));
 };
 
+// Download, link and embed buttons are shown only when the resource has no
+// dcterms:accessRights, or every value is the COAR "open access" term.
+$openAccess = 'http://purl.org/coar/access_right/c_abf2';
+$showMediaActions = true;
+foreach ($resource->value('dcterms:accessRights', ['all' => true]) as $accessRight) {
+    $accessValue = trim((string) ($accessRight->uri() ?: $accessRight->value()));
+    if ($accessValue !== $openAccess) {
+        $showMediaActions = false;
+        break;
+    }
+}
+
 $this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
 ?>
 <?php if ($resourceMedia): ?>
@@ -95,6 +107,7 @@ $this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
                         <?php if ($media->displayTitle()): ?>
                         <span class="media-title"><?php echo $media->displayTitle(); ?></span>
                         <?php endif; ?>
+                        <?php if ($showMediaActions): ?>
                         <?php $tipId = 'media-' . $media->id() . '-tip-'; ?>
                         <div class="media-actions" data-copy-fallback-message="<?php echo $escAttr($this->translate('Copy this text:')); ?>">
                             <a href="<?php echo $this->escapeHtml($media->originalUrl()); ?>" download class="media-action media-download"
@@ -120,6 +133,7 @@ $this->inlineScript()->appendFile($this->assetUrl('js/media-share.js'));
                                 <span class="media-action-tooltip" role="tooltip" id="<?php echo $tipId; ?>embed"><?php echo $escape($this->translate('Copy the HTML code to embed this media in a WordPress blog (paste it into a Custom HTML block) or any other website.')); ?></span>
                             </button>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
